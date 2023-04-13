@@ -5,7 +5,11 @@ export default function Home({data}: any) {
 
   return (
     <>
-      <div>Hello world</div>
+      <div>
+        {data.comps.map((item: any, i: number) => {
+          return <div key={i}>{item.__typename}</div>;
+        })}
+      </div>
     </>
   );
 }
@@ -31,7 +35,11 @@ export async function getStaticProps() {
                   }
                 }
                 ... on ComponentBlocksSection {
-                  
+                  text {
+                    body
+                    position
+                    variant
+                  }
                 }
               }
             }
