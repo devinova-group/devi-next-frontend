@@ -1,7 +1,7 @@
 import {gql, ApolloClient, InMemoryCache} from "@apollo/client";
 
 export default function Home({data}: any) {
-  console.log("data", data);
+  console.log("data", data.comps);
 
   return (
     <>
@@ -29,6 +29,9 @@ export async function getStaticProps() {
                     header
                     body
                   }
+                }
+                ... on ComponentBlocksSection {
+                  
                 }
               }
             }
