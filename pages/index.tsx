@@ -40,18 +40,17 @@ export default function Home() {
     return null;
   }
 
-  console.log(data.page.data.attributes.comps);
-
   const comps = data.page.data.attributes.comps;
   return (
     <Box>
-      {comps.map((item: any, i: number) => {
+      <Text>This is a test deploy</Text>
+      {/* {comps.map((item: any, i: number) => {
         return (
           <Text key={i} variant="H2">
             {item.__typename}
           </Text>
         );
-      })}
+      })} */}
     </Box>
   );
 }
