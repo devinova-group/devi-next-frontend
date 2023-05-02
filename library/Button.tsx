@@ -4,9 +4,9 @@ import {ButtonProps as ThemeUIButtonProps} from "theme-ui";
 import {buttonColors, colorMapping} from "../interfaces/types";
 
 export interface ButtonProps extends ThemeUIButtonProps {
-  size?: "small" | "medium" | "large";
-  variant?: "default" | "outlined" | "text";
-  colorVariant?: buttonColors;
+  size: "small" | "medium" | "large";
+  variant: "default" | "outlined" | "text";
+  colorVariant: buttonColors;
 }
 /**
  * - style: To edit styling of button
@@ -15,12 +15,10 @@ export interface ButtonProps extends ThemeUIButtonProps {
  * - colorVariant: "primary" | "secondary" | "success" | "error" | "warning" | "notification" | "information"
  */
 const Button = (props: ButtonProps) => {
-  let color = "primary.0";
-  if (colorMapping[props.colorVariant as keyof typeof colorMapping]) {
-    let background =
-      colorMapping[props.colorVariant as keyof typeof colorMapping];
-    color = background;
-  }
+  let backgroundSetter =
+    colorMapping[props.colorVariant as keyof typeof colorMapping];
+  let color = backgroundSetter;
+
   let background = {};
   switch (props.variant) {
     case "default":
