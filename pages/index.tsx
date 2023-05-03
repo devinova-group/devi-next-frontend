@@ -1,6 +1,7 @@
 import {gql, useQuery} from "@apollo/client";
-import {Box} from "theme-ui";
-import Text from "@/library/Text";
+import {Card, Flex, useColorMode} from "theme-ui";
+import Designator from "@/library/sections/Designator";
+import HeroSection from "@/library/sections/HeroSection";
 
 const QUERY = gql`
   query {
@@ -9,17 +10,58 @@ const QUERY = gql`
         attributes {
           comps {
             __typename
-            ... on ComponentBlocksFeatures {
-              cards {
-                header
-                body
-              }
-            }
             ... on ComponentBlocksSection {
               text {
                 body
                 position
                 variant
+              }
+              objectFit
+              imgPosition
+              mobileImgPosition
+              gap
+              img {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              backgroundImg {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              darkBackgroundImg {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              buttons {
+                text
+                color
+                size
+                variant
+              }
+            }
+            ... on ComponentBlocksFeatures {
+              title
+              cards {
+                variant
+                size
+                header
+                body
+                img {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
               }
             }
           }
@@ -31,26 +73,33 @@ const QUERY = gql`
 
 export default function Home() {
   const {data, loading, error} = useQuery(QUERY);
+  const [colorMode, setColorMode] = useColorMode();
+
   if (loading) {
     return <h2>Loading...</h2>;
   }
 
   if (error) {
-    console.error(error);
+    console.error(error.graphQLErrors);
     return null;
   }
 
   const comps = data.page.data.attributes.comps;
+  console.log("Data", data);
+  console.log("comps", comps);
+
   return (
-    <Box>
-      <Text>This is a test deploy</Text>
-      {/* {comps.map((item: any, i: number) => {
-        return (
-          <Text key={i} variant="H2">
-            {item.__typename}
-          </Text>
-        );
-      })} */}
-    </Box>
+    <Flex sx={{alignItems: "center", flexDirection: "column"}}>
+      <button
+        onClick={(e) => {
+          setColorMode(colorMode === "light" ? "dark" : "light");
+        }}
+      >
+        Toggle {colorMode === "light" ? "Dark" : "Light"}
+      </button>
+      {comps.map((item: any, i: number) => {
+        return <Designator component={item} key={i} />;
+      })}
+    </Flex>
   );
 }
