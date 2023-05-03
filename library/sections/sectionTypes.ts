@@ -72,7 +72,7 @@ type heroSectionComponent = {
   imagesPosition: imgPosition;
   mobileImagesPosition: mobileImgPosition;
   gap: number;
-  images: images;
+  images: img;
   backgroundImage: img;
   darkBackgroundImage: img;
   buttons: [buttonComponent];

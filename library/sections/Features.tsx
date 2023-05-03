@@ -23,7 +23,7 @@ const FeaturesSection = ({component}: featuresSectionProps) => {
       <Grid
         sx={{
           width: "100%",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: ["1fr", "1fr 1fr"],
           placeItems: "center",
         }}
       >
@@ -31,20 +31,26 @@ const FeaturesSection = ({component}: featuresSectionProps) => {
           return (
             <Flex
               key={i}
-              sx={{
-                flexDirection: "column",
-                width: `${card.size === "large" ? "415px" : "315px"}`,
-                gap: 10,
-              }}
+              sx={{width: "100%", height: "100%", justifyContent: "center"}}
             >
-              <Card variant={card.variant} size={card.size}>
-                <Text variant="H6">{card.header}</Text>
-                <Image
-                  src={card.img.data.attributes.url}
-                  alt={card.header + "Image"}
-                />
-              </Card>
-              <Text>{card.body}</Text>
+              <Flex
+                sx={{
+                  flexDirection: "column",
+                  width: `${
+                    card.size === "large" ? ["100%", "415px"] : "315px"
+                  }`,
+                  gap: 10,
+                }}
+              >
+                <Card variant={card.variant} size={card.size}>
+                  <Text variant="H6">{card.header}</Text>
+                  <Image
+                    src={card.img.data.attributes.url}
+                    alt={card.header + "Image"}
+                  />
+                </Card>
+                <Text>{card.body}</Text>
+              </Flex>
             </Flex>
           );
         })}

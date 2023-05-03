@@ -48,43 +48,6 @@ const QUERY = gql`
                 variant
               }
             }
-            ... on ComponentBlocksHeroHeader {
-              text {
-                body
-                position
-                variant
-              }
-              imagesPosition
-              mobileImagesPosition
-              gap
-              images {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              backgroundImage {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              darkBackgroundImage {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              buttons {
-                text
-                color
-                size
-                variant
-              }
-            }
             ... on ComponentBlocksFeatures {
               title
               cards {

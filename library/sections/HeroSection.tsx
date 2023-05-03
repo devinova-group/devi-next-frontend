@@ -90,6 +90,25 @@ const HeroSection = ({component}: heroSectionProps) => {
           justifyContent: "center",
           alignItems: "center",
           overflow: "hidden",
+        }}
+      >
+        <Image
+          sx={{
+            objectFit: "none",
+            "@media screen and (min-width: 600px)": {
+              height: "660px",
+            },
+          }}
+          src={component.images.data.attributes.url}
+          alt={component.__typename}
+        />
+      </Flex>
+      {/* <Flex
+        sx={{
+          gridArea: "img",
+          justifyContent: "center",
+          alignItems: "center",
+          overflow: "hidden",
           "@media screen and (max-width: 600px)": {
             width: "90%",
           },
@@ -120,7 +139,7 @@ const HeroSection = ({component}: heroSectionProps) => {
             })}
           </SplideTrack>
         </Splide>
-      </Flex>
+      </Flex> */}
     </Grid>
   );
 };
