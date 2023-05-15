@@ -46,6 +46,7 @@ const QUERY = gql`
                 color
                 size
                 variant
+                destination
               }
             }
             ... on ComponentBlocksFeatures {

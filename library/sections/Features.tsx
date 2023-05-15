@@ -1,11 +1,11 @@
-import {Flex, useColorMode, Image, Grid} from "theme-ui";
+import {Flex, useColorMode, Image, Grid, Box} from "theme-ui";
 import {card, featuresSectionProps} from "./sectionTypes";
-import Card from "../Cards";
+import FeatureCard from "../FeatureCard";
 import Text from "../Text";
 
 const FeaturesSection = ({component}: featuresSectionProps) => {
   const [mode] = useColorMode();
-  let bgVariable = "background";
+  let bgVariable = "services.background";
 
   return (
     <Flex
@@ -15,16 +15,19 @@ const FeaturesSection = ({component}: featuresSectionProps) => {
         backgroundSize: "cover",
         flexDirection: "column",
         alignItems: "center",
-        height: 1460,
+        paddingBottom: 20,
         width: "100%",
       }}
     >
-      <Text variant="H5">{component.title}</Text>
+      <Box sx={{paddingY: "70px"}}>
+        <Text variant="H5">{component.title}</Text>
+      </Box>
       <Grid
         sx={{
           width: "100%",
           gridTemplateColumns: ["1fr", "1fr 1fr"],
           placeItems: "center",
+          rowGap: 25,
         }}
       >
         {component.cards.map((card: card, i: number) => {
@@ -36,19 +39,17 @@ const FeaturesSection = ({component}: featuresSectionProps) => {
               <Flex
                 sx={{
                   flexDirection: "column",
-                  width: `${
-                    card.size === "large" ? ["100%", "415px"] : "315px"
-                  }`,
+                  maxWidth: `${card.size === "large" ? "415px" : "315px"}`,
                   gap: 10,
                 }}
               >
-                <Card variant={card.variant} size={card.size}>
+                <FeatureCard variant={card.variant} size={card.size}>
                   <Text variant="H6">{card.header}</Text>
                   <Image
                     src={card.img.data.attributes.url}
                     alt={card.header + "Image"}
                   />
-                </Card>
+                </FeatureCard>
                 <Text>{card.body}</Text>
               </Flex>
             </Flex>

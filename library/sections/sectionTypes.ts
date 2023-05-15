@@ -51,6 +51,7 @@ interface buttonComponent {
   color: buttonColor;
   size: buttonSize;
   variant: buttonVariant;
+  destination: string;
 }
 
 type sectionComponent = {
