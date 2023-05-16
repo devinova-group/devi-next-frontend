@@ -1,7 +1,7 @@
 import {gql, useQuery} from "@apollo/client";
-import {Card, Flex, useColorMode} from "theme-ui";
+import {Flex, useColorMode} from "theme-ui";
 import Designator from "@/library/sections/Designator";
-import HeroSection from "@/library/sections/HeroSection";
+import Contact from "@/library/contact/Contact";
 
 const QUERY = gql`
   query {
@@ -91,7 +91,7 @@ export default function Home() {
 
   return (
     <Flex sx={{alignItems: "center", flexDirection: "column"}}>
-      <button
+      {/* <button
         onClick={(e) => {
           setColorMode(colorMode === "light" ? "dark" : "light");
         }}
@@ -100,7 +100,8 @@ export default function Home() {
       </button>
       {comps.map((item: any, i: number) => {
         return <Designator component={item} key={i} />;
-      })}
+      })} */}
+      <Contact />
     </Flex>
   );
 }

@@ -28,19 +28,29 @@ const FeaturesSection = ({component}: featuresSectionProps) => {
           gridTemplateColumns: ["1fr", "1fr 1fr"],
           placeItems: "center",
           rowGap: 25,
+          columnGap: 0,
         }}
       >
         {component.cards.map((card: card, i: number) => {
+          let cardSize = `${card.size === "large" ? "415px" : "315px"}`;
           return (
-            <Flex
+            <Grid
               key={i}
-              sx={{width: "100%", height: "100%", justifyContent: "center"}}
+              sx={{
+                width: "100%",
+                height: "100%",
+                gridTemplateColumns: `${
+                  i % 2 ? `1fr ${cardSize} 2fr` : `2fr ${cardSize} 1fr`
+                }`,
+              }}
             >
               <Flex
                 sx={{
+                  gridColumn: "2/3",
                   flexDirection: "column",
-                  maxWidth: `${card.size === "large" ? "415px" : "315px"}`,
+                  maxWidth: "100%",
                   gap: 10,
+                  alignItems: "center",
                 }}
               >
                 <FeatureCard variant={card.variant} size={card.size}>
@@ -52,7 +62,7 @@ const FeaturesSection = ({component}: featuresSectionProps) => {
                 </FeatureCard>
                 <Text>{card.body}</Text>
               </Flex>
-            </Flex>
+            </Grid>
           );
         })}
       </Grid>

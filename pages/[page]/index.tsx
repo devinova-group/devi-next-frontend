@@ -47,6 +47,7 @@ const QUERY = gql`
                 color
                 size
                 variant
+                destination
               }
             }
             ... on ComponentBlocksFeatures {
@@ -90,6 +91,10 @@ export default function Home() {
     (strapiPage: any) => strapiPage.attributes.pagename == router.query.page
   );
 
+  if (!comps) {
+    return <Flex>404</Flex>;
+  }
+
   return (
     <Flex sx={{alignItems: "center", flexDirection: "column"}}>
       <button
@@ -98,13 +103,6 @@ export default function Home() {
         }}
       >
         Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </button>
-      <button
-        onClick={() => {
-          router.push("/text");
-        }}
-      >
-        testing
       </button>
       {comps.attributes.comps.map((item: any, i: number) => {
         return <Designator component={item} key={i} />;
