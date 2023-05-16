@@ -1,65 +1,106 @@
-import {gql, useQuery} from "@apollo/client";
-import {Card, Flex, useColorMode} from "theme-ui";
-import Designator from "@/library/sections/Designator";
-import HeroSection from "@/library/sections/HeroSection";
+import React from "react";
+import { gql, useQuery } from "@apollo/client";
+import Designator from "./components/Designator";
 
 const QUERY = gql`
-  query {
+  query GetPage {
+    navigation {
+      data {
+        attributes {
+          navbar {
+            ... on ComponentComponentLink {
+              label
+              href
+            }
+            ... on ComponentComponentDropDown {
+              labeldropdown
+              links {
+                label
+                href
+              }
+            }
+          }
+          logo {
+            link
+            logoDesktopLight {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            logoMobileLight {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            logoDesktopDark {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            logoMobileDark {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     page(id: 1) {
       data {
         attributes {
+          pagename
           comps {
-            __typename
-            ... on ComponentBlocksSection {
-              text {
-                body
-                position
-                variant
+            ... on ComponentBlocksHeroBanner {
+              image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
               }
-              objectFit
+
+              title
               imgPosition
-              mobileImgPosition
-              gap
-              img {
+              layout
+              gradientHero
+              paragraphHero
+              buttonTitle
+            }
+            ... on ComponentBlocksTextHeader {
+              title
+              paragraph
+              imagePosition
+              image {
                 data {
                   attributes {
                     url
                   }
                 }
-              }
-              backgroundImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              darkBackgroundImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              buttons {
-                text
-                color
-                size
-                variant
               }
             }
-            ... on ComponentBlocksFeatures {
+            ... on ComponentBlocksBanner {
               title
-              cards {
-                variant
-                size
-                header
-                body
-                img {
-                  data {
-                    attributes {
-                      url
-                    }
+              gradient
+              image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              imageMobile {
+                data {
+                  attributes {
+                    url
                   }
                 }
               }
@@ -72,34 +113,22 @@ const QUERY = gql`
 `;
 
 export default function Home() {
-  const {data, loading, error} = useQuery(QUERY);
-  const [colorMode, setColorMode] = useColorMode();
-
+  const { data, loading, error } = useQuery(QUERY);
   if (loading) {
     return <h2>Loading...</h2>;
   }
 
   if (error) {
-    console.error(error.graphQLErrors);
     return null;
   }
-
-  const comps = data.page.data.attributes.comps;
-  console.log("Data", data);
-  console.log("comps", comps);
+  const comps = data?.page.data.attributes.comps;
 
   return (
-    <Flex sx={{alignItems: "center", flexDirection: "column"}}>
-      <button
-        onClick={(e) => {
-          setColorMode(colorMode === "light" ? "dark" : "light");
-        }}
-      >
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </button>
-      {comps.map((item: any, i: number) => {
-        return <Designator component={item} key={i} />;
-      })}
-    </Flex>
+    <>
+      {comps &&
+        comps?.map((item: any, i: number) => {
+          return <Designator component={item} key={i} />;
+        })}
+    </>
   );
 }

@@ -242,6 +242,50 @@ const grids = {
     overflow: "hidden",
   },
   content: {
+    // Add media query for mobile version, maybe add max/min-width, strapi hold width for image and such?
+    main: {
+      right: {
+        gridTemplateAreas: `"h i" 
+                          "sh i"
+                          "b i"`,
+        "@media screen and (max-width: 40em)": {
+          gridTemplateAreas: `"i"
+                          "h"
+                          "sh"
+                          "b"`,
+        },
+      },
+      left: {
+        gridTemplateAreas: `"i h"
+                          "i sh" 
+                          "i b"`,
+      },
+      top: {
+        gridTemplateAreas: `"i"
+                          "h"
+                          "sh"
+                          "b"`,
+      },
+      bottom: {
+        gridTemplateAreas: `"h"
+                          "sh" 
+                          "b"
+                          "i"`,
+      },
+    },
+    contact: {},
+    services: {
+      gridTemplateAreas: `"h h"
+                          "b b"
+                          "b b"`,
+      placeContent: "space-evenly",
+      backgroundColor: "services.background",
+      minWidth: "1440px",
+    },
+    service: {
+      gridTemplateAreas: `"m"
+                          "s"`,
+    },
     section: {
       right: {
         top: {
@@ -249,10 +293,10 @@ const grids = {
                               "left"`,
           width: "100%",
           gridGap: 0,
-          placeItems: "center",
-          "@media screen and (min-width: 431px)": {
+          "@media screen and (min-width: 40em)": {
             gridTemplateAreas: `"left img"`,
             gridTemplateColumns: "50% 50%",
+            maxWidth: "1440px",
             height: "660px",
           },
         },
@@ -261,10 +305,10 @@ const grids = {
                               "img"`,
           width: "100%",
           gridGap: 0,
-          placeItems: "center",
-          "@media screen and (min-width: 431px)": {
+          "@media screen and (min-width: 40em)": {
             gridTemplateAreas: `"left img"`,
             gridTemplateColumns: "50% 50%",
+            width: "1440px",
             height: "660px",
           },
         },
@@ -275,10 +319,10 @@ const grids = {
           "left"`,
           width: "100%",
           gridGap: 0,
-          placeItems: "center",
-          "@media screen and (min-width: 431px)": {
+          "@media screen and (min-width: 40em)": {
             gridTemplateAreas: `"img left"`,
             gridTemplateColumns: "50% 50%",
+            maxWidth: "1440px",
             height: "660px",
           },
         },
@@ -287,10 +331,10 @@ const grids = {
           "img"`,
           width: "100%",
           gridGap: 0,
-          placeItems: "center",
-          "@media screen and (min-width: 431px)": {
+          "@media screen and (min-width: 40em)": {
             gridTemplateAreas: `"img left"`,
             gridTemplateColumns: "50% 50%",
+            width: "1440px",
             height: "660px",
           },
         },

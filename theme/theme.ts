@@ -23,7 +23,6 @@ export const theme = {
   lineHeights: [0, "24px", "32px", "48px", "60px", "72px", "96px"],
   letterSpacings: [1, 2, 2.5, 3, 3.5],
   zIndices: [0, 250, 500, 1000, 1500],
-  breakpoints: ["600px"],
   colors,
   text,
   box,
