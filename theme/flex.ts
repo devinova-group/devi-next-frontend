@@ -1,4 +1,4 @@
-const flex = {
+const flex: any = {
   default: {
     flexDirection: "column",
     justifyContent: "center",

@@ -1,16 +1,12 @@
-/** @type {import('next').NextConfig} */
+const withSvgr = require("next-svgr");
+
+
+
 const nextConfig = {
   reactStrictMode: true,
   distDir: "build",
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-        port: "",
-      },
-    ],
-  },
 };
-
 module.exports = nextConfig;
+module.exports = withSvgr({
+  // your config for other plugins or the general next.js here...
+});

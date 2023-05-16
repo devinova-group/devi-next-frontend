@@ -42,6 +42,8 @@ export interface textComponent {
 
 export type imagePosition = "right" | "left";
 
+export type componentType = "main" | "services" | "contact";
+
 type buttonVariant = "outlined" | "default" | "text";
 
 type buttonSize = "small" | "medium" | "large";

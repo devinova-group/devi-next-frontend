@@ -2,7 +2,7 @@ import FeaturesSection from "./Features";
 import HeroSection from "./HeroSection";
 import Section from "./Section";
 
-const Designator = ({component}: any) => {
+const Designator = ({ component }: any) => {
   let section = <></>;
 
   switch (component.__typename) {

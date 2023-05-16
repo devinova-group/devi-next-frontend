@@ -1,9 +1,9 @@
-import {Theme} from "theme-ui";
+import { Theme } from "theme-ui";
 
 const colors: Theme["colors"] = {
   text: "#2B303A",
-  buttonText: "#F1F3F9",
-  background: "#E1E6EF",
+  buttonText: "#EDF0F7",
+  background: "white",
   neutral: [
     "#5B5F70",
     "#4F5462",
@@ -25,6 +25,7 @@ const colors: Theme["colors"] = {
     bordershadow: "#CACFD9",
     serviceBackground: "#EDF0F7",
     background: "#F1F3F9",
+    invert: "#1F2228",
   },
   button: {
     error: "#C12945",
@@ -47,8 +48,8 @@ const colors: Theme["colors"] = {
   modes: {
     dark: {
       text: "#EDF0F7",
-      buttonText: "#2B303A",
-      background: "#373944",
+      buttonText: "#EDF0F7",
+      background: "black",
       neutral: [
         "#AEB6C5",
         "#CACFD9",
@@ -70,6 +71,7 @@ const colors: Theme["colors"] = {
         bordershadow: "#161719",
         serviceBackground: "#2B303A",
         background: "#1F2228",
+        invert: "#F1F3F9",
       },
       button: {
         error: "#C12945",
