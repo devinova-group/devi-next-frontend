@@ -4,26 +4,6 @@ import {Field, Formik, Form} from "formik";
 
 const Contact = () => {
   const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_lqy25p4",
-        "template_u9zqx7e",
-        e.current,
-        "UEX0s2KdFoYt4CEKX"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
-
   const initialValues = {
     name: "",
     company: "",
@@ -34,10 +14,10 @@ const Contact = () => {
 
   const contactSubmit = (values, {resetForm, setSubmitting}) => {
     emailjs.sendForm(
-      "service_lqy25p4",
-      "template_u9zqx7e",
+      process.env.NEXT_PUBLIC_SERVICE_ID,
+      process.env.NEXT_PUBLIC_TEMPLATE_ID,
       "form",
-      "UEX0s2KdFoYt4CEKX"
+      process.env.NEXT_PUBLIC_PUBLIC_KEY
     );
 
     setSubmitting(false);
