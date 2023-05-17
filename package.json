@@ -23,5 +23,8 @@
     "react-dom": "18.2.0",
     "theme-ui": "^0.15.7",
     "typescript": "5.0.3"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^7.0.0"
   }
 }
