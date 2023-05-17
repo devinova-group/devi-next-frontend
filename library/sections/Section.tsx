@@ -2,9 +2,11 @@ import {Flex, Grid, useColorMode, Image} from "theme-ui";
 import {buttonComponent, sectionProps, textComponent} from "./sectionTypes";
 import Text from "../Text";
 import Button from "../Button";
+import {useRouter} from "next/router";
 
 const Section = ({component}: sectionProps) => {
   const [mode] = useColorMode();
+  const router = useRouter();
   let bgVariable = "background";
   if (
     component.darkBackgroundImg.data != null ||
@@ -71,6 +73,9 @@ const Section = ({component}: sectionProps) => {
                     variant={button.variant}
                     size={button.size}
                     colorVariant={button.color}
+                    onClick={() => {
+                      router.push(button.destination ?? "/");
+                    }}
                   >
                     {button.text}
                   </Button>

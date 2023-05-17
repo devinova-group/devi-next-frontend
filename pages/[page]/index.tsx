@@ -48,6 +48,7 @@ const QUERY = gql`
                 color
                 size
                 variant
+                destination
               }
             }
             ... on ComponentBlocksFeatures {
@@ -91,6 +92,10 @@ export default function Home() {
   );
   if (!comps) {
     return <NotFound />;
+  }
+
+  if (!comps) {
+    return <Flex>404</Flex>;
   }
 
   return (
