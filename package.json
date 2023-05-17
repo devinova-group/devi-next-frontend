@@ -11,6 +11,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.11",
     "@emotion/react": "^11.10.6",
+    "@splidejs/react-splide": "github:splidejs/react-splide",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
