@@ -1,7 +1,8 @@
-import {gql, useQuery} from "@apollo/client";
-import {Flex, useColorMode} from "theme-ui";
+import { gql, useQuery } from "@apollo/client";
+import { Flex, useColorMode } from "theme-ui";
 import Designator from "@/library/sections/Designator";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
+import NotFound from "../404";
 
 const QUERY = gql`
   query {
@@ -74,8 +75,7 @@ const QUERY = gql`
 `;
 
 export default function Home() {
-  const {data, loading, error} = useQuery(QUERY);
-  const [colorMode, setColorMode] = useColorMode();
+  const { data, loading, error } = useQuery(QUERY);
   const router = useRouter();
 
   if (loading) {
@@ -90,20 +90,16 @@ export default function Home() {
   const comps = data.pages.data.find(
     (strapiPage: any) => strapiPage.attributes.pagename == router.query.page
   );
+  if (!comps) {
+    return <NotFound />;
+  }
 
   if (!comps) {
     return <Flex>404</Flex>;
   }
 
   return (
-    <Flex sx={{alignItems: "center", flexDirection: "column"}}>
-      <button
-        onClick={(e) => {
-          setColorMode(colorMode === "light" ? "dark" : "light");
-        }}
-      >
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </button>
+    <Flex sx={{ alignItems: "center", flexDirection: "column" }}>
       {comps.attributes.comps.map((item: any, i: number) => {
         return <Designator component={item} key={i} />;
       })}
