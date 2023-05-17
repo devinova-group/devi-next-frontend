@@ -55,11 +55,65 @@ const QUERY = gql`
         }
       }
     }
+  query GetPage {
+    navigation {
+      data {
+        attributes {
+          navbar {
+            ... on ComponentComponentLink {
+              label
+              href
+            }
+            ... on ComponentComponentDropDown {
+              labeldropdown
+              links {
+                label
+                href
+              }
+            }
+          }
+          logo {
+            link
+            logoDesktopLight {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            logoMobileLight {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            logoDesktopDark {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            logoMobileDark {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     page(id: 1) {
       data {
         attributes {
           pagename
+          pagename
           comps {
+            ... on ComponentBlocksHeroBanner {
+              image {
             ... on ComponentBlocksHeroBanner {
               image {
                 data {
@@ -68,6 +122,19 @@ const QUERY = gql`
                   }
                 }
               }
+
+              title
+              imgPosition
+              layout
+              gradientHero
+              paragraphHero
+              buttonTitle
+            }
+            ... on ComponentBlocksTextHeader {
+              title
+              paragraph
+              imagePosition
+              image {
 
               title
               imgPosition
@@ -92,6 +159,11 @@ const QUERY = gql`
               title
               gradient
               image {
+            }
+            ... on ComponentBlocksBanner {
+              title
+              gradient
+              image {
                 data {
                   attributes {
                     url
@@ -111,9 +183,23 @@ const QUERY = gql`
       }
     }
   }
+              imageMobile {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default function Home() {
+  const { data, loading, error } = useQuery(QUERY);
   const { data, loading, error } = useQuery(QUERY);
   if (loading) {
     return <h2>Loading...</h2>;
