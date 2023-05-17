@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { Box, Image, useColorMode } from "theme-ui";
-import { gql, useQuery } from "@apollo/client";
+import {Box, Image, useColorMode} from "theme-ui";
+import {gql, useQuery} from "@apollo/client";
 import Text from "../library/Text";
 import Button from "@/library/Button";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 
 const NotFound = () => {
   const router = useRouter();
   const [mode] = useColorMode();
-  const { data } = useQuery(gql`
+  const {data} = useQuery(gql`
     query {
       notfound {
         data {
@@ -126,23 +126,7 @@ const NotFound = () => {
             flexDirection: "column",
           },
         }}
-      >
-        <Button
-          onClick={() => router.back()}
-          variant={notfound?.button[0].variant}
-          size={notfound?.button[0].size}
-        >
-          {notfound?.button[0].text}
-        </Button>
-        <Link href="/">
-          <Button
-            variant={notfound?.button[1].variant}
-            size={notfound?.button[1].size}
-          >
-            {notfound?.button[1].text}
-          </Button>
-        </Link>
-      </Box>
+      ></Box>
     </Box>
   );
 };
