@@ -2,8 +2,8 @@ import {Theme} from "theme-ui";
 
 const colors: Theme["colors"] = {
   text: "#2B303A",
-  buttonText: "#EDF0F7",
-  background: "white",
+  buttonText: "#F1F3F9",
+  background: "#E1E6EF",
   neutral: [
     "#5B5F70",
     "#4F5462",
@@ -53,8 +53,8 @@ const colors: Theme["colors"] = {
   modes: {
     dark: {
       text: "#EDF0F7",
-      buttonText: "#EDF0F7",
-      background: "black",
+      buttonText: "#2B303A",
+      background: "#373944",
       neutral: [
         "#AEB6C5",
         "#CACFD9",

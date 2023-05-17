@@ -9,7 +9,7 @@ const buttons: Theme["buttons"] = {
     borderRadius: "8px",
     border: `solid 2px`,
     color: "buttonText",
-    margin: 2,
+    margin: 0,
     padding: 0,
     "&:hover": {},
     "&:disabled": {},
@@ -17,12 +17,21 @@ const buttons: Theme["buttons"] = {
   },
   default: {
     variant: "buttons.primary",
+    "@media screen and (max-width: 430px)": {
+      maxWidth: "400px",
+    },
   },
   outlined: {
     variant: "buttons.primary",
+    "@media screen and (max-width: 430px)": {
+      maxWidth: "400px",
+    },
   },
   text: {
     variant: "buttons.primary",
+    "@media screen and (max-width: 430px)": {
+      maxWidth: "400px",
+    },
   },
 };
 export default buttons;
