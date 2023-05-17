@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import Designator from "./components/Designator";
+import Navigation from "./components/Navigation";
 
 const QUERY = gql`
   query GetPage {
@@ -122,9 +123,10 @@ export default function Home() {
     return null;
   }
   const comps = data?.page.data.attributes.comps;
-
+  const nav = data?.navigation.data.attributes
   return (
     <>
+     <Navigation nav={nav} /> 
       {comps &&
         comps?.map((item: any, i: number) => {
           return <Designator component={item} key={i} />;
