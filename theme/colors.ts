@@ -43,6 +43,12 @@ const colors: Theme["colors"] = {
     default: "#00000040",
     field: "#4C3A8040",
   },
+  footer: {
+    footerBackground: "#E2DEF2"
+  },
+  notFound: {
+    notFoundBgr: "#EDF0F7"
+  },
   border: {},
   modes: {
     dark: {
@@ -87,6 +93,12 @@ const colors: Theme["colors"] = {
       shadow: {
         default: "#00000040",
         field: "#00000040",
+      },
+      footer: {
+        footerBackground: "#271C4A"
+      },
+      notFound: {
+        notFoundBgr: "#2B303A"
       },
       link: {
         test: "#FFF",
