@@ -6,10 +6,6 @@ import DeviLogo from "../assets/DeviLogo.svg";
 
 const mock = {
   title: "Gothenburg office",
-  email: "info@devinova.se",
-  adress: "Fabriksgatan 7, 412 50",
-  number: "+46 73 250 0582",
-  location: "Gothenburg, Sweden",
 };
 
 const Footer = () => {
@@ -197,7 +193,6 @@ const Footer = () => {
 const container: ThemeUIStyleObject = {
   height: "15rem",
   color: "text",
-  position: "fixed",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",

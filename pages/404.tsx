@@ -1,45 +1,58 @@
 import Link from "next/link";
-import { Box, Image, useColorMode } from "theme-ui";
+import { Box, Flex, Image, useColorMode } from "theme-ui";
 import { gql, useQuery } from "@apollo/client";
 import Text from "../library/Text";
 import Button from "@/library/Button";
 import { useRouter } from "next/router";
+import { buttonComponent } from "@/library/sections/sectionTypes";
 
-const NotFound = () => {
-  const router = useRouter();
-  const [mode] = useColorMode();
-  const { data } = useQuery(gql`
-    query {
-      notfound {
-        data {
-          attributes {
-            warningHeader
-            warningInfo
-            image {
-              data {
-                attributes {
-                  url
-                }
+const QUERY = gql`
+  query {
+    notfound {
+      data {
+        attributes {
+          warningHeader
+          warningInfo
+          image {
+            data {
+              attributes {
+                url
               }
             }
-            imageLight {
-              data {
-                attributes {
-                  url
-                }
+          }
+          imageLight {
+            data {
+              attributes {
+                url
               }
             }
-            button {
-              text
-              color
-              size
-              variant
-            }
+          }
+          button {
+            text
+            color
+            size
+            variant
           }
         }
       }
     }
-  `);
+  }
+`;
+
+const NotFound = () => {
+  const { data, loading, error } = useQuery(QUERY);
+  const router = useRouter();
+  const [mode] = useColorMode();
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
+  if (error) {
+    console.error(error.graphQLErrors);
+    return null;
+  }
+
   let notfound = data?.notfound.data.attributes;
   console.log(data);
 
@@ -120,28 +133,41 @@ const NotFound = () => {
           justifyContent: "center",
           alignItems: "center",
           marginTop: "1rem",
-          marginBottom: "2rem",
+          marginBottom: "5rem",
           gap: "1rem",
           "@media screen and (max-width: 700px)": {
             flexDirection: "column",
           },
         }}
       >
-        <Button
-          onClick={() => router.back()}
-          variant={notfound?.button[0].variant}
-          size={notfound?.button[0].size}
-        >
-          {notfound?.button[0].text}
-        </Button>
-        <Link href="/">
-          <Button
-            variant={notfound?.button[1].variant}
-            size={notfound?.button[1].size}
+        {notfound?.button ? (
+          <Flex
+            sx={{
+              gap: "1rem",
+              "@media screen and (max-width: 700px)": {
+                flexDirection: "column",
+              },
+            }}
           >
-            {notfound?.button[1].text}
-          </Button>
-        </Link>
+            {notfound.button.map((button: buttonComponent, i: number) => {
+              return (
+                <Button
+                  key={i}
+                  variant={button.variant}
+                  size={button.size}
+                  colorVariant={button.color}
+                  onClick={() => {
+                    router.push(button.destination ?? "/");
+                  }}
+                >
+                  {button.text}
+                </Button>
+              );
+            })}
+          </Flex>
+        ) : (
+          <></>
+        )}
       </Box>
     </Box>
   );
