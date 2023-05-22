@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Box, Flex, Image, useColorMode } from "theme-ui";
 import { gql, useQuery } from "@apollo/client";
 import Text from "../library/Text";
