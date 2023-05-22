@@ -1,10 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import Flex from "@/library/Flex";
-
-import { useColorMode } from "theme-ui";
 import Designator from "@/library/sections/Designator";
 import Footer from "@/library/footer";
-import Navigation from "./components/Navigation";
+import Navigation from "../components/Navigation";
 
 const QUERY = gql`
   query {

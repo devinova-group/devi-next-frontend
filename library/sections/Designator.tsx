@@ -1,9 +1,9 @@
-import TextBanner from "@/pages/components/TextBanner";
+import TextBanner from "@/components/TextBanner";
 import FeaturesSection from "./Features";
 import HeroSection from "./HeroSection";
 import Section from "./Section";
-import TextHeader from "@/pages/components/TextHeader";
-import Hero from "@/pages/components/Hero";
+import TextHeader from "@/components/TextHeader";
+import Hero from "@/components/Hero";
 
 const Designator = ({ component }: any) => {
   let section = <></>;
