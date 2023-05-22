@@ -4,8 +4,8 @@ import Flex from "../Flex";
 import Image from "../Image";
 import Text from "../Text";
 import Button from "../Button";
-import bgWhite from "../../pages/assets/images/bgWhite.png";
-import bgBlack from "../../pages/assets/images/bgBlack.png";
+import bgWhite from "..//../assets/images/bgWhite.png";
+import bgBlack from "..//../assets/images/bgBlack.png";
 import { useColorMode } from "theme-ui";
 
 export interface HeroBannerProps {

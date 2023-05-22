@@ -7,10 +7,10 @@ import Flex from "../Flex";
 import Link from "../Link";
 
 /* SVG */
-import Hamburger from "..//../pages/assets/svg/Hamburger.svg";
-import Close from "..//../pages/assets/svg/x-close.svg";
-import DarkMode from "..//../pages/assets/svg/DarkMode.svg";
-import LightMode from "..//../pages/assets/svg/LightMode.svg";
+import Hamburger from "..//../assets/svg/Hamburger.svg";
+import Close from "..//../assets/svg/x-close.svg";
+import DarkMode from "..//../assets/svg/DarkMode.svg";
+import LightMode from "..//../assets/svg/LightMode.svg";
 import Image from "../Image";
 
 export interface NavbarProps {
