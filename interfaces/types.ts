@@ -40,15 +40,15 @@ export interface textComponent {
   variant: textVariants;
 }
 
-export type imagePosition = "right" | "left";
+export type imagePosition = "top" | "bottom" | "right" | "left";
 
-type buttonVariant = "outlined" | "default" | "text";
+export type buttonVariant = "outlined" | "default" | "text";
 
-type buttonSize = "small" | "medium" | "large";
+export type buttonSize = "small" | "medium" | "large";
 
-type buttonColor = "primary" | "error" | "success";
+export type buttonColor = "primary" | "error" | "success";
 
-type objfit = "none" | "contain" | "cover" | "fill" | "scale-down";
+export type objfit = "none" | "contain" | "cover" | "fill" | "scale-down";
 
 interface button {
   text: string;
@@ -86,7 +86,7 @@ export interface sectionButtonProps {
 }
 
 export interface sectionImgProps {
-  img: {localFile: any};
+  img: { localFile: any };
   alternate: string;
   fit?: objfit;
 }

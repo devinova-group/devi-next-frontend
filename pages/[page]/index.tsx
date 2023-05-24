@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { Flex, useColorMode } from "theme-ui";
-import Designator from "@/library/sections/Designator";
+import Designator from "@/layoutComponents/Designator";
 import { useRouter } from "next/router";
 import NotFound from "../404";
 

@@ -5,8 +5,8 @@ import Text from "../Text";
 import Box from "../Box";
 import NavLink from "../NavLink";
 /* SVG */
-import Arrow from "..//../assets/svg/arrow.svg";
-import ArrowDown from "..//../assets/svg/arrowDown.svg";
+import Arrow from "..//../assets/arrow.svg";
+import ArrowDown from "..//../assets/arrowDown.svg";
 
 export interface NavDropDownProps {
   children: React.ReactNode;

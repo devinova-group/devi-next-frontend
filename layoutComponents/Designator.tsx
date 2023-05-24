@@ -1,9 +1,10 @@
-import TextBanner from "@/components/TextBanner";
+import TextBanner from "@/layoutComponents/TextBanner";
 import FeaturesSection from "./Features";
 import HeroSection from "./HeroSection";
 import Section from "./Section";
-import TextHeader from "@/components/TextHeader";
-import Hero from "@/components/Hero";
+import TextSection from "./TextSection";
+import HeroBanner from "./HeroBanner";
+import TestimonialsV1 from "./TestimonialsV1";
 
 const Designator = ({ component }: any) => {
   let section = <></>;
@@ -22,16 +23,20 @@ const Designator = ({ component }: any) => {
       break;
 
     case "ComponentBlocksBanner":
-      section = <TextBanner banner={component} />;
+      section = <TextBanner component={component} />;
       break;
 
     case "ComponentBlocksTextHeader":
-      section = <TextHeader textHeader={component} />;
+      section = <TextSection component={component} />;
       break;
 
     case "ComponentBlocksHeroBanner":
-      section = <Hero hero={component} />;
+      section = <HeroBanner component={component} />;
       break;
+
+    /*    case "ComponentBlocksTestimonialsV1":
+      section = <TestimonialsV1 component={component} />;
+      break; */
 
     default:
       break;

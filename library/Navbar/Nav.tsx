@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "../Box";
 import NavLink from "../NavLink";
-import DarkMode from "..//../assets/svg/DarkMode.svg";
-import LightMode from "..//../assets/svg/LightMode.svg";
+import DarkMode from "..//../assets/DarkMode.svg";
+import LightMode from "..//../assets/LightMode.svg";
 import { useColorMode } from "theme-ui";
 export interface NavProps {
   children: React.ReactNode;
