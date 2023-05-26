@@ -19,7 +19,7 @@ function HeroBanner({ component }: HeroBannerProps) {
   const bgLignt = component.bgHeroBanner.lightBackground.data?.attributes.url;
   const bgDark = component.bgHeroBanner.darkBackground.data?.attributes.url;
 
-  const image = <Image sx={{ margin: "30px" }} src={imageUrl} />;
+  const image = imageUrl && <Image sx={{ margin: "30px" }} src={imageUrl} />;
   const mode =
     colorMode === "light"
       ? `url(${bgLignt}) no-repeat`

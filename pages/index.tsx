@@ -62,7 +62,33 @@ const QUERY = gql`
         attributes {
           comps {
             __typename
-            ... on ComponentBlocksTestimonialsV1 {
+            ... on ComponentBlocksTestimonialV2 {
+              quote
+              titleV2 {
+                body
+                position
+                variant
+              }
+              imgV2 {
+                imagesPosition
+                width
+                height
+                altText
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              paragraphV2 {
+                body
+                position
+                variant
+              }
+            }
+            ... on ComponentBlocksTestimonialCompV1 {
               titleV1 {
                 body
                 position

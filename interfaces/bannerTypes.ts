@@ -1,15 +1,61 @@
-import {
-  imagePosition,
-  buttonVariant,
-  buttonColors,
-  buttonSize,
-  textVariants,
-} from "./types";
+import { buttonVariant, buttonColors, buttonSize, textVariants } from "./types";
 
 type imageProp = {
-  data: { attributes: { url: string | undefined } };
+  data: { attributes: { url: string | undefined | null } };
 };
+export interface TestimonialsV2Props {
+  component: {
+    __typename: string;
+    quote: boolean;
+    titleV2: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
 
+    paragraphV2: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    imgV2: {
+      width: string;
+      height: string;
+      imagesPosition: string;
+      altText: string;
+      mobileImage: imageProp;
+      image: imageProp;
+    };
+  };
+}
+export interface TestimonialsV1Props {
+  component: {
+    __typename: string;
+    titleV1: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    subheadV1: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    paragraphV1: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    imgV1: {
+      width: string;
+      height: string;
+      imagesPosition: string;
+      altText: string;
+      mobileImage: imageProp;
+      image: imageProp;
+    };
+  };
+}
 export interface TextBannerProps {
   component: {
     __typename: string;

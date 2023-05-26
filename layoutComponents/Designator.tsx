@@ -5,6 +5,7 @@ import Section from "./Section";
 import TextSection from "./TextSection";
 import HeroBanner from "./HeroBanner";
 import TestimonialsV1 from "./TestimonialsV1";
+import TestimonialsV2 from "./TestimonialsV2";
 
 const Designator = ({ component }: any) => {
   let section = <></>;
@@ -34,9 +35,13 @@ const Designator = ({ component }: any) => {
       section = <HeroBanner component={component} />;
       break;
 
-    /*    case "ComponentBlocksTestimonialsV1":
+    case "ComponentBlocksTestimonialCompV1":
       section = <TestimonialsV1 component={component} />;
-      break; */
+      break;
+
+    case "ComponentBlocksTestimonialV2":
+      section = <TestimonialsV2 component={component} />;
+      break;
 
     default:
       break;
