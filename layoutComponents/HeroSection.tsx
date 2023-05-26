@@ -1,11 +1,18 @@
-import {Flex, Grid, useColorMode, Image} from "theme-ui";
-import {buttonComponent, heroSectionProps, textComponent} from "./sectionTypes";
-import Text from "../Text";
-import Button from "../Button";
-import {Splide, SplideSlide, SplideTrack} from "@splidejs/react-splide";
+import { useColorMode } from "theme-ui";
+import {
+  buttonComponent,
+  heroSectionProps,
+  textComponent,
+} from "../interfaces/sectionTypes";
+/* import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide"; */
 import "@splidejs/react-splide/css";
+import Grid from "@/library/Grid";
+import Flex from "@/library/Flex";
+import Text from "@/library/Text";
+import Button from "@/library/Button";
+import Image from "@/library/Image";
 
-const HeroSection = ({component}: heroSectionProps) => {
+const HeroSection = ({ component }: heroSectionProps) => {
   const [mode] = useColorMode();
   let bgVariable = "background";
   if (
@@ -72,7 +79,7 @@ const HeroSection = ({component}: heroSectionProps) => {
                     key={i}
                     variant={button.variant}
                     size={button.size}
-                    colorVariant={button.color}
+                    color={button.color}
                   >
                     {button.text}
                   </Button>

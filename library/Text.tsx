@@ -1,10 +1,10 @@
 import React from "react";
-import {Text as TextThemeUi} from "theme-ui";
-import {TextProps as TextPropsThemeUi} from "theme-ui";
-import {textVariants, variantMapping} from "../interfaces/types";
+import { Text as TextThemeUi } from "theme-ui";
+import { TextProps as TextPropsThemeUi } from "theme-ui";
+import { textVariants, variantMapping } from "../interfaces/types";
 
 export interface TextProps extends TextPropsThemeUi {
-  variant?: textVariants;
+  variant?: string;
 }
 const Text = (props: TextProps) => {
   let Tag: React.ElementType = "span";

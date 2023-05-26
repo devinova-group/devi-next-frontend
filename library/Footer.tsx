@@ -1,8 +1,7 @@
 import * as React from "react";
 import { Box, ThemeUIStyleObject, Image, useColorMode } from "theme-ui";
-import Text from "../library/Text";
+import Text from "./Text";
 import { gql, useQuery } from "@apollo/client";
-import DeviLogo from "../assets/DeviLogo.svg";
 
 const mock = {
   title: "Gothenburg office",
@@ -67,7 +66,7 @@ const Footer = () => {
     }
   `);
   let footer = data?.footer.data.attributes;
-  console.log(data);
+  /*   console.log(data); */
   return (
     <Box sx={container}>
       <Box sx={Box1}>
@@ -103,9 +102,7 @@ const Footer = () => {
           },
         }}
       >
-        <Box color="text" sx={{ marginTop: "2rem" }}>
-          <DeviLogo />
-        </Box>
+        <Box color="text" sx={{ marginTop: "2rem" }}></Box>
         <Box
           sx={{
             // marginTop: "1rem",

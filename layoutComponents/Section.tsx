@@ -1,10 +1,15 @@
-import {Flex, Grid, useColorMode, Image} from "theme-ui";
-import {buttonComponent, sectionProps, textComponent} from "./sectionTypes";
-import Text from "../Text";
-import Button from "../Button";
-import {useRouter} from "next/router";
+import { Flex, Grid, useColorMode, Image } from "theme-ui";
+import {
+  buttonComponent,
+  sectionProps,
+  textComponent,
+} from "../interfaces/sectionTypes";
 
-const Section = ({component}: sectionProps) => {
+import { useRouter } from "next/router";
+import Text from "@/library/Text";
+import Button from "@/library/Button";
+
+const Section = ({ component }: sectionProps) => {
   const [mode] = useColorMode();
   const router = useRouter();
   let bgVariable = "background";
@@ -72,7 +77,7 @@ const Section = ({component}: sectionProps) => {
                     key={i}
                     variant={button.variant}
                     size={button.size}
-                    colorVariant={button.color}
+                    color={button.color}
                     onClick={() => {
                       router.push(button.destination ?? "/");
                     }}

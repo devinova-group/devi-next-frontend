@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { Box, Flex, Image, useColorMode } from "theme-ui";
 import { gql, useQuery } from "@apollo/client";
 import Text from "../library/Text";
 import Button from "@/library/Button";
 import { useRouter } from "next/router";
-import { buttonComponent } from "@/library/sections/sectionTypes";
+import { buttonComponent } from "@/interfaces/sectionTypes";
 
 const QUERY = gql`
   query {
@@ -155,7 +154,7 @@ const NotFound = () => {
                   key={i}
                   variant={button.variant}
                   size={button.size}
-                  colorVariant={button.color}
+                  color={button.color}
                   onClick={() => {
                     router.push(button.destination ?? "/");
                   }}

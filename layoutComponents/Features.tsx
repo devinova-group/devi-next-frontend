@@ -1,9 +1,13 @@
-import {Flex, useColorMode, Image, Grid, Box} from "theme-ui";
-import {card, featuresSectionProps} from "./sectionTypes";
-import FeatureCard from "../FeatureCard";
-import Text from "../Text";
+import { useColorMode } from "theme-ui";
+import { card, featuresSectionProps } from "../interfaces/sectionTypes";
+import Flex from "@/library/Flex";
+import Box from "@/library/Box";
+import Text from "@/library/Text";
+import Grid from "@/library/Grid";
+import FeatureCard from "@/library/FeatureCard";
+import Image from "@/library/Image";
 
-const FeaturesSection = ({component}: featuresSectionProps) => {
+const FeaturesSection = ({ component }: featuresSectionProps) => {
   const [mode] = useColorMode();
   let bgVariable = "services.background";
 
@@ -19,7 +23,7 @@ const FeaturesSection = ({component}: featuresSectionProps) => {
         width: "100%",
       }}
     >
-      <Box sx={{paddingY: "70px"}}>
+      <Box sx={{ paddingY: "70px" }}>
         <Text variant="H5">{component.title}</Text>
       </Box>
       <Grid

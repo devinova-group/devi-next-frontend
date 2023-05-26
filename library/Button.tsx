@@ -1,12 +1,12 @@
 import React from "react";
-import {Button as ButtonThemeUi} from "theme-ui";
-import {ButtonProps as ThemeUIButtonProps} from "theme-ui";
-import {buttonColors, colorMapping} from "../interfaces/types";
+import { Button as ButtonThemeUi } from "theme-ui";
+import { ButtonProps as ThemeUIButtonProps } from "theme-ui";
+import { buttonColors, colorMapping } from "../interfaces/types";
 
 export interface ButtonProps extends ThemeUIButtonProps {
   size: "small" | "medium" | "large";
   variant: "default" | "outlined" | "text";
-  colorVariant: buttonColors;
+  color: buttonColors;
 }
 /**
  * - style: To edit styling of button
@@ -15,8 +15,7 @@ export interface ButtonProps extends ThemeUIButtonProps {
  * - colorVariant: "primary" | "secondary" | "success" | "error" | "warning" | "notification" | "information"
  */
 const Button = (props: ButtonProps) => {
-  let backgroundSetter =
-    colorMapping[props.colorVariant as keyof typeof colorMapping];
+  let backgroundSetter = colorMapping[props.color as keyof typeof colorMapping];
   let color = backgroundSetter;
 
   let background = {};
@@ -67,16 +66,16 @@ const Button = (props: ButtonProps) => {
   let size = {};
   switch (props.size) {
     case "large":
-      size = {minWidth: "220px", minHeight: "60px", fontSize: 4};
+      size = { minWidth: "220px", minHeight: "60px", fontSize: 4 };
       break;
     case "medium":
-      size = {minWidth: "150px", minHeight: "50px", fontSize: 3};
+      size = { minWidth: "150px", minHeight: "50px", fontSize: 3 };
       break;
     case "small":
-      size = {minWidth: "114px", minHeight: "38px", fontSize: 2};
+      size = { minWidth: "114px", minHeight: "38px", fontSize: 2 };
       break;
     default:
-      size = {minWidth: "220px", minHeight: "60px", fontSize: 4};
+      size = { minWidth: "220px", minHeight: "60px", fontSize: 4 };
       break;
   }
 
