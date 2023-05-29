@@ -129,6 +129,7 @@ export interface HeroBannerProps {
       variant: buttonVariant;
       color: buttonColors;
       size: buttonSize;
+      destination: string;
     };
     layoutHeroBanner: string;
     gradientHeroBanner: boolean;

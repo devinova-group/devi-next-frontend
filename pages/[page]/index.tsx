@@ -3,83 +3,14 @@ import { Flex, useColorMode } from "theme-ui";
 import Designator from "@/layoutComponents/Designator";
 import { useRouter } from "next/router";
 import NotFound from "../404";
-
-const QUERY = gql`
-  query {
-    pages {
-      data {
-        attributes {
-          pagename
-          comps {
-            __typename
-            ... on ComponentBlocksSection {
-              text {
-                body
-                position
-                variant
-              }
-              objectFit
-              imgPosition
-              mobileImgPosition
-              gap
-              img {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              backgroundImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              darkBackgroundImg {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              buttons {
-                text
-                color
-                size
-                variant
-                destination
-              }
-            }
-            ... on ComponentBlocksFeatures {
-              title
-              cards {
-                variant
-                size
-                header
-                body
-                img {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import { getPages } from "@/interfaces/graphql/Query";
+import Loading from "@/library/Loading";
 
 export default function Home() {
-  const { data, loading, error } = useQuery(QUERY);
+  const { data, loading, error } = useQuery(getPages);
   const router = useRouter();
-
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <Loading />;
   }
 
   if (error) {
@@ -92,10 +23,6 @@ export default function Home() {
   );
   if (!comps) {
     return <NotFound />;
-  }
-
-  if (!comps) {
-    return <Flex>404</Flex>;
   }
 
   return (

@@ -10,12 +10,13 @@ function TextSection({ component }: TextSectionProps) {
   const title = component?.titleTextSection;
   const paragraph = component?.paragraphTextSection;
   const imagePosition = component.imgTextSection?.imagesPosition;
-  const imageUrl = component.imgTextSection.image.data?.attributes.url;
+  const imageUrl = component.imgTextSection?.image.data?.attributes.url;
   const imageWidth = component.imgTextSection?.width;
   const imageHeight = component.imgTextSection?.height;
+  const imageAlt = component.imgTextSection?.altText;
 
-  const bgLignt = component.bgTextSection.lightBackground.data?.attributes.url;
-  const bgDark = component.bgTextSection.darkBackground.data?.attributes.url;
+  const bgLignt = component.bgTextSection?.lightBackground.data?.attributes.url;
+  const bgDark = component.bgTextSection?.darkBackground.data?.attributes.url;
 
   const image = imageUrl && (
     <Image
@@ -25,6 +26,7 @@ function TextSection({ component }: TextSectionProps) {
         height: `${imageHeight ? imageHeight : "auto"}`,
       }}
       src={imageUrl}
+      alt={imageAlt}
     />
   );
   const mode =
@@ -78,30 +80,32 @@ function TextSection({ component }: TextSectionProps) {
           >
             {title.body}
           </Text>
-          <Text
-            variant={paragraph.variant}
-            sx={{
-              width: ["90%", "500px"],
-              marginTop: 12,
-              color: "services.invert",
-              fontSize: [2, 3],
-              alignSelf: [
-                "center",
-                `
+          {paragraph && (
+            <Text
+              variant={paragraph.variant}
+              sx={{
+                width: ["90%", "500px"],
+                marginTop: 12,
+                color: "services.invert",
+                fontSize: [2, 3],
+                alignSelf: [
+                  "center",
+                  `
               ${
                 imagePosition === ("left" || "right")
                   ? `${paragraph.position}`
                   : "start"
               }`,
-              ],
-              textAlign: [
-                "center",
-                `${paragraph ? paragraph.position : "center"}`,
-              ],
-            }}
-          >
-            {paragraph.body}
-          </Text>
+                ],
+                textAlign: [
+                  "center",
+                  `${paragraph ? paragraph.position : "center"}`,
+                ],
+              }}
+            >
+              {paragraph.body}
+            </Text>
+          )}
           {imagePosition === "bottom" && image}
         </Flex>
         {imagePosition === "right" && image}

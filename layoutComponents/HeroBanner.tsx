@@ -6,9 +6,11 @@ import Text from "@/library/Text";
 import Box from "@/library/Box";
 import Button from "@/library/Button";
 import { HeroBannerProps } from "@/interfaces/bannerTypes";
+import { useRouter } from "next/router";
 
 function HeroBanner({ component }: HeroBannerProps) {
   const [colorMode] = useColorMode();
+  const router = useRouter();
   const title = component?.titleHeroBanner;
   const paragraph = component?.paragraphHeroBanner;
   const imageUrl = component.imgHeroBanner.image.data?.attributes.url;
@@ -18,12 +20,26 @@ function HeroBanner({ component }: HeroBannerProps) {
   const imagePosition = component.imgHeroBanner.imagesPosition;
   const bgLignt = component.bgHeroBanner.lightBackground.data?.attributes.url;
   const bgDark = component.bgHeroBanner.darkBackground.data?.attributes.url;
+  const imageWidth = component.imgHeroBanner?.width;
+  const imageHeight = component.imgHeroBanner?.height;
+  const imageAlt = component.imgHeroBanner?.altText;
 
-  const image = imageUrl && <Image sx={{ margin: "30px" }} src={imageUrl} />;
-  const mode =
-    colorMode === "light"
+  const image = imageUrl && (
+    <Image
+      sx={{
+        margin: "30px",
+        width: `${imageWidth}`,
+        height: `${imageHeight ? imageHeight : "auto"}`,
+      }}
+      src={imageUrl}
+      alt={imageAlt}
+    />
+  );
+  const mode = bgLignt
+    ? colorMode === "light"
       ? `url(${bgLignt}) no-repeat`
-      : `url(${bgDark}) no-repeat`;
+      : `url(${bgDark}) no-repeat`
+    : "services.background";
   return (
     <Flex
       sx={{
@@ -78,6 +94,7 @@ function HeroBanner({ component }: HeroBannerProps) {
               fontSize: [2, 3],
               textAlign: `${paragraph.position}`,
               color: `${gradient ? "white" : "services.invert"} `,
+              textJustify: "auto",
             }}
           >
             {paragraph.body}
@@ -94,6 +111,9 @@ function HeroBanner({ component }: HeroBannerProps) {
                 variant={button.variant}
                 color={button.color}
                 size={button.size}
+                onClick={() => {
+                  router.push(button.destination ?? "/");
+                }}
               >
                 {button.text}
               </Button>
@@ -101,13 +121,18 @@ function HeroBanner({ component }: HeroBannerProps) {
           </Box>
         </Flex>
         {layout === "actionButton" && (
-          <Button
-            variant={button.variant}
-            color={button.color}
-            size={button.size}
-          >
-            {button.text}
-          </Button>
+          <Box sx={{ width: "280px" }}>
+            <Button
+              variant={button.variant}
+              color={button.color}
+              size={button.size}
+              onClick={() => {
+                router.push(button.destination ?? "/");
+              }}
+            >
+              {button.text}
+            </Button>
+          </Box>
         )}
         {layout === "imageButton" && imagePosition === "right" && image}
       </Flex>
