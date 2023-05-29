@@ -13,13 +13,13 @@ function HeroBanner({ component }: HeroBannerProps) {
   const router = useRouter();
   const title = component?.titleHeroBanner;
   const paragraph = component?.paragraphHeroBanner;
-  const imageUrl = component.imgHeroBanner.image.data?.attributes.url;
-  const button = component.buttonHeroBanner;
-  const layout = component.layoutHeroBanner;
+  const imageUrl = component.imgHeroBanner?.image?.data?.attributes.url;
+  const button = component?.buttonHeroBanner;
+  const layout = component?.layoutHeroBanner;
   const gradient = component.gradientHeroBanner;
-  const imagePosition = component.imgHeroBanner.imagesPosition;
-  const bgLignt = component.bgHeroBanner.lightBackground.data?.attributes.url;
-  const bgDark = component.bgHeroBanner.darkBackground.data?.attributes.url;
+  const imagePosition = component.imgHeroBanner?.imagesPosition;
+  const bgLignt = component.bgHeroBanner?.lightBackground.data?.attributes.url;
+  const bgDark = component.bgHeroBanner?.darkBackground.data?.attributes.url;
   const imageWidth = component.imgHeroBanner?.width;
   const imageHeight = component.imgHeroBanner?.height;
   const imageAlt = component.imgHeroBanner?.altText;
@@ -77,28 +77,32 @@ function HeroBanner({ component }: HeroBannerProps) {
             gap: "30px",
           }}
         >
-          <Text
-            variant={title.variant}
-            sx={{
-              fontFamily: "Quicksand",
-              fontSize: [4, 6],
-              color: `${gradient ? "white" : "services.invert"} `,
-            }}
-          >
-            {title.body}
-          </Text>
-          <Text
-            variant={paragraph.variant}
-            sx={{
-              width: ["272px", "500px"],
-              fontSize: [2, 3],
-              textAlign: `${paragraph.position}`,
-              color: `${gradient ? "white" : "services.invert"} `,
-              textJustify: "auto",
-            }}
-          >
-            {paragraph.body}
-          </Text>
+          {title && (
+            <Text
+              variant={title.variant}
+              sx={{
+                fontFamily: "Quicksand",
+                fontSize: [4, 6],
+                color: `${gradient ? "white" : "services.invert"} `,
+              }}
+            >
+              {title.body}
+            </Text>
+          )}
+          {paragraph && (
+            <Text
+              variant={paragraph.variant}
+              sx={{
+                width: ["272px", "500px"],
+                fontSize: [2, 3],
+                textAlign: `${paragraph.position}`,
+                color: `${gradient ? "white" : "services.invert"} `,
+                textJustify: "auto",
+              }}
+            >
+              {paragraph.body}
+            </Text>
+          )}
           <Box
             sx={{
               button: {
@@ -106,7 +110,7 @@ function HeroBanner({ component }: HeroBannerProps) {
               },
             }}
           >
-            {layout === "imageButton" && (
+            {layout === "imageButton" && button && (
               <Button
                 variant={button.variant}
                 color={button.color}
