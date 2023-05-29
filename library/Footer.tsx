@@ -1,96 +1,41 @@
 import * as React from "react";
 import { Box, ThemeUIStyleObject, Image, useColorMode } from "theme-ui";
 import Text from "./Text";
-import { gql, useQuery } from "@apollo/client";
 
 const mock = {
   title: "Gothenburg office",
 };
 
-const Footer = () => {
+const Footer = ({ data }: any) => {
   const [mode] = useColorMode();
-  const { data } = useQuery(gql`
-    query {
-      footer {
-        data {
-          attributes {
-            email
-            adress
-            location
-            number
-            twitter {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            instagram {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            linkedin {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            instaDark {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            twitterDark {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            linkedinDark {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-  let footer = data?.footer.data.attributes;
-  /*   console.log(data); */
+
+  const footer = data?.footer?.data.attributes;
   return (
     <Box sx={container}>
-      <Box sx={Box1}>
-        <Text
-          variant="H6"
-          sx={{
-            display: "none",
-            "@media screen and (max-width: 700px)": {
-              display: "unset",
-              marginBottom: "1rem",
-            },
-          }}
-        >
-          Get in touch
-        </Text>
-        <Text variant="H6">{mock.title}</Text>
-        <br />
-        <Text variant="Body1" sx={{ color: "modes.dark.text" }}>
-          {footer?.adress}
-        </Text>
-        <Text variant="Body1">{footer?.location}</Text>
-        <Text variant="Body1">{footer?.email}</Text>
-        <Text variant="Body1">{footer?.number}</Text>
-      </Box>
+      {footer && (
+        <Box sx={Box1}>
+          <Text
+            variant="H6"
+            sx={{
+              display: "none",
+              "@media screen and (max-width: 700px)": {
+                display: "unset",
+                marginBottom: "1rem",
+              },
+            }}
+          >
+            Get in touch
+          </Text>
+          <Text variant="H6">{mock.title}</Text>
+          <br />
+          <Text variant="Body1" sx={{ color: "modes.dark.text" }}>
+            {footer?.adress}
+          </Text>
+          <Text variant="Body1">{footer?.location}</Text>
+          <Text variant="Body1">{footer?.email}</Text>
+          <Text variant="Body1">{footer?.number}</Text>
+        </Box>
+      )}
       <Box
         sx={{
           display: "flex",
@@ -146,42 +91,44 @@ const Footer = () => {
         <Text variant="Caption">
           Follow us on social media for regular updates.
         </Text>
-        <Box
-          color="text"
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            gap: "2rem",
-            marginTop: "2rem",
-            alignItems: "center",
-            justifyContent: "center",
-            "@media screen and (max-width: 700px)": {
-              marginBottom: "2rem",
-            },
-          }}
-        >
-          <Image
-            src={
-              mode === "dark"
-                ? footer?.twitterDark.data.attributes.url
-                : footer?.twitter.data.attributes.url
-            }
-          />
-          <Image
-            src={
-              mode === "dark"
-                ? footer?.instaDark.data.attributes.url
-                : footer?.instagram.data.attributes.url
-            }
-          />
-          <Image
-            src={
-              mode === "dark"
-                ? footer?.linkedinDark.data.attributes.url
-                : footer?.linkedin.data.attributes.url
-            }
-          />
-        </Box>
+        {footer && (
+          <Box
+            color="text"
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "2rem",
+              marginTop: "2rem",
+              alignItems: "center",
+              justifyContent: "center",
+              "@media screen and (max-width: 700px)": {
+                marginBottom: "2rem",
+              },
+            }}
+          >
+            <Image
+              src={
+                mode === "dark"
+                  ? footer?.twitterDark.data.attributes.url
+                  : footer?.twitter.data.attributes.url
+              }
+            />
+            <Image
+              src={
+                mode === "dark"
+                  ? footer?.instaDark.data.attributes.url
+                  : footer?.instagram.data.attributes.url
+              }
+            />
+            <Image
+              src={
+                mode === "dark"
+                  ? footer?.linkedinDark.data.attributes.url
+                  : footer?.linkedin.data.attributes.url
+              }
+            />
+          </Box>
+        )}
       </Box>
     </Box>
   );

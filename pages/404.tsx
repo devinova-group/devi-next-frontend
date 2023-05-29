@@ -4,47 +4,16 @@ import Text from "../library/Text";
 import Button from "@/library/Button";
 import { useRouter } from "next/router";
 import { buttonComponent } from "@/interfaces/sectionTypes";
-
-const QUERY = gql`
-  query {
-    notfound {
-      data {
-        attributes {
-          warningHeader
-          warningInfo
-          image {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          imageLight {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          button {
-            text
-            color
-            size
-            variant
-          }
-        }
-      }
-    }
-  }
-`;
+import Loading from "@/library/Loading";
+import { getPages } from "@/interfaces/graphql/Query";
 
 const NotFound = () => {
-  const { data, loading, error } = useQuery(QUERY);
+  const { data, loading, error } = useQuery(getPages);
   const router = useRouter();
   const [mode] = useColorMode();
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <Loading />;
   }
 
   if (error) {

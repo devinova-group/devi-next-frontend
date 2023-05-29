@@ -13,6 +13,7 @@ function TestimonialsV2({ component }: TestimonialsV2Props) {
   const imageWidth = component.imgV2?.width;
   const imageHeight = component.imgV2?.height;
   const quoteSvg = component?.quote;
+  const imageAlt = component.imgV2?.altText;
 
   const image = imageUrl && (
     <Flex
@@ -29,6 +30,7 @@ function TestimonialsV2({ component }: TestimonialsV2Props) {
           height: `${imageHeight ? imageHeight : "auto"}`,
         }}
         src={`${imageUrl}`}
+        alt={imageAlt}
       />
     </Flex>
   );

@@ -12,7 +12,7 @@ function TextBanner({ component }: TextBannerProps) {
   const imageMobile = component.imgTextBanner.mobileImage.data?.attributes.url;
   const imageWidth = component.imgTextBanner?.width;
   const imageHeight = component.imgTextBanner?.height;
-
+  const imageAlt = component.imgTextBanner?.altText;
   return (
     <Flex
       sx={{
@@ -54,6 +54,7 @@ function TextBanner({ component }: TextBannerProps) {
               height: `${imageHeight ? imageHeight : "auto"}`,
             }}
             src={image}
+            alt={imageAlt}
           />
         )}
         {imageMobile ? (
