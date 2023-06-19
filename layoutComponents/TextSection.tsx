@@ -61,25 +61,27 @@ function TextSection({ component }: TextSectionProps) {
           }}
         >
           {imagePosition === "top" && image}
-          <Text
-            variant={title.variant}
-            sx={{
-              color: "services.invert",
-              fontFamily: "Quicksand",
-              fontSize: 6,
-              alignSelf: [
-                "center",
-                `
+          {title && (
+            <Text
+              variant={title.variant}
+              sx={{
+                color: "services.invert",
+                fontFamily: "Quicksand",
+                fontSize: 6,
+                alignSelf: [
+                  "center",
+                  `
               ${
                 imagePosition === ("left" || "right")
                   ? `${title.position}`
                   : "start"
               }`,
-              ],
-            }}
-          >
-            {title.body}
-          </Text>
+                ],
+              }}
+            >
+              {title.body}
+            </Text>
+          )}
           {paragraph && (
             <Text
               variant={paragraph.variant}

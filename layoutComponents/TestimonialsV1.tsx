@@ -4,7 +4,6 @@ import Text from "@/library/Text";
 import React from "react";
 import Image from "@/library/Image";
 import { TestimonialsV1Props } from "@/interfaces/bannerTypes";
-import Box from "@/library/Box";
 
 function TestimonialsV1({ component }: TestimonialsV1Props) {
   const title = component?.titleV1;

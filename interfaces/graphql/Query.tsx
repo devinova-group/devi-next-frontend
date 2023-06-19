@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 const getPages = gql`
-  query {
+  query GetAllData {
     notfound {
       data {
         attributes {
@@ -137,6 +137,102 @@ const getPages = gql`
         attributes {
           pagename
           comps {
+            __typename
+            ... on ComponentBlocksFormField {
+              formLayout
+              formSubheadTwo {
+                body
+                position
+                variant
+              }
+              formRadio {
+                __typename
+                radioLabel
+                radioName
+                radioValue
+                defaultChecked
+                radioTitle
+              }
+              formCheckbox {
+                __typename
+                checkboxLabel
+                checkboxName
+                checkDefault
+                checkboxTitle
+              }
+              formTextArea {
+                __typename
+                textAreaName
+                textAreaPlaceholder
+                textAreaRows
+                textAreaMb
+                textAreaLabel
+                textAreaHtml
+              }
+              formSelect {
+                __typename
+                selectOption
+                selectDefault
+                selectTitle
+              }
+              formSubmit {
+                text
+                color
+                size
+                variant
+                destination
+              }
+              formTitle {
+                body
+                position
+                variant
+              }
+              formSubhead {
+                body
+                position
+                variant
+              }
+              formParagraph {
+                body
+                position
+                variant
+              }
+              formImage {
+                width
+                height
+                imagesPosition
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              formField {
+                __typename
+                fieldLabel
+                fieldName
+                fieldLabelHtml
+                fieldPlaceholder
+                fieldMb
+                fieldType
+                formIconLight {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                formIconDark {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
             ... on ComponentBlocksFeatures {
               cards {
                 variant

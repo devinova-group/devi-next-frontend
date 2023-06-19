@@ -55,7 +55,7 @@ function HeroBanner({ component }: HeroBannerProps) {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: ["column", "row"],
-          gap: ["5%", "220px"],
+          gap: ["5%", ""],
           background: `${
             gradient
               ? `linear-gradient(92.89deg, rgba(96, 68, 181, 0.9) 0%, rgba(1, 147, 147, 0.9) 99.21%)`
@@ -83,6 +83,7 @@ function HeroBanner({ component }: HeroBannerProps) {
               sx={{
                 fontFamily: "Quicksand",
                 fontSize: [4, 6],
+                textAlign: `${title.position}`,
                 color: `${gradient ? "white" : "services.invert"} `,
               }}
             >
@@ -112,6 +113,12 @@ function HeroBanner({ component }: HeroBannerProps) {
           >
             {layout === "imageButton" && button && (
               <Button
+                sx={{
+                  color: "white",
+                  minWidth: "220px",
+                  minHeight: "60px",
+                  fontSize: 4,
+                }}
                 variant={button.variant}
                 color={button.color}
                 size={button.size}
@@ -127,6 +134,7 @@ function HeroBanner({ component }: HeroBannerProps) {
         {layout === "actionButton" && (
           <Box sx={{ width: "280px" }}>
             <Button
+              sx={{ color: "white" }}
               variant={button.variant}
               color={button.color}
               size={button.size}

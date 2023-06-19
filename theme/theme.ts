@@ -11,6 +11,7 @@ import heading from "./heading";
 import modal from "./modal";
 import tooltip from "./tooltip";
 import box from "./box";
+import forms from "./forms";
 
 export const theme = {
   space: [
@@ -37,6 +38,7 @@ export const theme = {
   heading,
   modal,
   tooltip,
+  forms,
 };
 
 export default theme;

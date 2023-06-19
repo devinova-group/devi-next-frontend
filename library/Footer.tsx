@@ -9,7 +9,7 @@ const mock = {
 const Footer = ({ data }: any) => {
   const [mode] = useColorMode();
 
-  const footer = data?.footer?.data.attributes;
+  const footer = data?.footer?.data?.attributes;
   return (
     <Box sx={container}>
       {footer && (

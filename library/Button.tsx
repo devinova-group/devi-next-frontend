@@ -17,10 +17,13 @@ export interface ButtonProps extends ThemeUIButtonProps {
 const Button = (props: ButtonProps) => {
   let backgroundSetter = colorMapping[props.color as keyof typeof colorMapping];
   let color = backgroundSetter;
-
   let background = {};
+  let styles = { color: "buttonText" };
   switch (props.variant) {
     case "default":
+      styles = {
+        color: "buttonText",
+      };
       background = {
         backgroundColor: color,
         borderColor: "transparent",
@@ -32,6 +35,9 @@ const Button = (props: ButtonProps) => {
       };
       break;
     case "outlined":
+      styles = {
+        color: color,
+      };
       background = {
         backgroundColor: "transparent",
         borderColor: color,
@@ -44,6 +50,9 @@ const Button = (props: ButtonProps) => {
       };
       break;
     case "text":
+      styles = {
+        color: "services.invert",
+      };
       background = {
         color: color,
         backgroundColor: "transparent",
@@ -82,12 +91,14 @@ const Button = (props: ButtonProps) => {
   const buttonCSS = {
     ...background,
     ...size,
+    ...styles,
   };
   return (
     <ButtonThemeUi
       {...props}
       variant={`${props.variant ?? "default"}`}
       sx={buttonCSS}
+      color={styles.color}
     />
   );
 };

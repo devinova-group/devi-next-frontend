@@ -4,7 +4,7 @@ import Nav from "@/library/Navbar/Nav";
 import DesignatorNav from "./DesignatorNav";
 
 const Navigation = ({ data }: any) => {
-  const nav = data?.navigation.data.attributes;
+  const nav = data?.navigation?.data?.attributes;
   const logoDesktopLight = nav?.logo?.logoDesktopLight.data?.attributes.url;
   const logoDesktopDark = nav?.logo?.logoDesktopDark.data?.attributes.url;
   const logoMobileLight = nav?.logo?.logoMobileLight.data?.attributes.url;
@@ -30,29 +30,6 @@ const Navigation = ({ data }: any) => {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-
-    /*  Build Structure
-    <Navbar>
-        <Navbar.Brand href={"/"}>
-          <LogoMobile />
-          <LogoDesktop />
-        </Navbar.Brand>
-        <Navbar.Collapse>
-          <Nav>
-            <NavDropDown title="DROPDOWN">
-              <NavDropDown.Item href="/">Action</NavDropDown.Item>
-              <NavDropDown.Item href="/">Another Action</NavDropDown.Item>
-              <NavDropDown.Item href="/">Something</NavDropDown.Item>
-              <NavDropDown.Divider />
-              <NavDropDown.Item href="/">Seperated link</NavDropDown.Item>
-            </NavDropDown>
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#home">Career</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="#home">Contact</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar> */
   );
 };
 

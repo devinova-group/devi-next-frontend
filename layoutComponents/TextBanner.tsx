@@ -6,10 +6,10 @@ import Box from "@/library/Box";
 import { TextBannerProps } from "@/interfaces/bannerTypes";
 
 function TextBanner({ component }: TextBannerProps) {
-  const title = component.titleTextBanner;
-  const gradient = component.gradientTextBanner;
-  const image = component.imgTextBanner.image.data?.attributes.url;
-  const imageMobile = component.imgTextBanner.mobileImage.data?.attributes.url;
+  const title = component?.titleTextBanner;
+  const gradient = component?.gradientTextBanner;
+  const image = component.imgTextBanner?.image.data?.attributes.url;
+  const imageMobile = component.imgTextBanner?.mobileImage.data?.attributes.url;
   const imageWidth = component.imgTextBanner?.width;
   const imageHeight = component.imgTextBanner?.height;
   const imageAlt = component.imgTextBanner?.altText;

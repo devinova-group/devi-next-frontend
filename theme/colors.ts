@@ -26,6 +26,7 @@ const colors: Theme["colors"] = {
     serviceBackground: "#EDF0F7",
     background: "#F1F3F9",
     invert: "#1F2228",
+    formColor: "#E1E6EF",
   },
   button: {
     error: "#C12945",
@@ -54,7 +55,7 @@ const colors: Theme["colors"] = {
   modes: {
     dark: {
       text: "#EDF0F7",
-      buttonText: "#EDF0F7",
+      buttonText: "#2B303A",
       background: "black",
       neutral: [
         "#AEB6C5",
@@ -78,6 +79,7 @@ const colors: Theme["colors"] = {
         serviceBackground: "#2B303A",
         background: "#1F2228",
         invert: "#F1F3F9",
+        formColor: "#2B303A",
       },
       button: {
         error: "#C12945",
