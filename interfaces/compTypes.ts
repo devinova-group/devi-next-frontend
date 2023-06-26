@@ -1,8 +1,79 @@
 import { buttonVariant, buttonColors, buttonSize, textVariants } from "./types";
-
+/* listSectionTitle
+	Text 	
+listSectionSubhead
+	Text 	
+listSectionParagraph
+	Text 	
+ListItem
+	Component (repeatable)	
+listSectionSubheadTwo
+	Text 	
+  listImage
+	Media 	
+listTitle
+	Text 	
+listparagraph
+ */
 type imageProp = {
   data: { attributes: { url: string | undefined | null } };
 };
+
+type textProp = {
+  variant?: string;
+  position?: string;
+  body?: string;
+};
+
+export interface FormFieldProp {
+  component: {
+    formTitle?: textProp;
+    formSubhead?: textProp;
+    formSubheadTwo?: textProp;
+    formParagraph?: textProp;
+    formCheckbox?: any;
+    formRadio?: any;
+    formSelect?: any;
+    formLayout?: string;
+    formSubmit?: any;
+    formImage?: { image?: imageProp };
+    formTextArea?: Array<object>;
+    formField?: any;
+  };
+}
+
+export interface ListSectionProp {
+  component?: {
+    listTitle?: textProp;
+    listSubhead?: textProp;
+    listSubheadTwo?: textProp;
+    listBody?: textProp;
+    listItem?: Array<object>;
+  };
+  item?: {
+    listTitle: string;
+    listparagraph: string;
+    listImage: { data: { attributes: { url: string | undefined } } };
+  };
+}
+
+export interface TitleLinksProp {
+  component: {
+    gallery?: Array<object>;
+    galleryTitle?: string;
+    itemPostition?: string;
+    itemBackground?: boolean;
+    itemsLayout?: string;
+    galleryBG?: {
+      lightBackground?: imageProp;
+      darkBackground?: imageProp;
+    };
+  };
+  imgSrc?: {
+    galleryImg?: imageProp;
+  };
+}
+
 export interface TestimonialsV2Props {
   component: {
     __typename: string;

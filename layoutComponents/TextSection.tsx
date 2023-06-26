@@ -2,7 +2,7 @@ import React from "react";
 import Flex from "@/library/Flex";
 import Text from "@/library/Text";
 import Image from "@/library/Image";
-import { TextSectionProps } from "@/interfaces/bannerTypes";
+import { TextSectionProps } from "@/interfaces/compTypes";
 import { useColorMode } from "theme-ui";
 
 function TextSection({ component }: TextSectionProps) {

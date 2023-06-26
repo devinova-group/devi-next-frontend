@@ -1,19 +1,17 @@
 import React, { useRef, useState } from "react";
-/* import { Form, Formik, Field } from "formik"; */
 import Text from "@/library/Text";
 import emailjs from "@emailjs/browser";
 import Flex from "@/library/Flex";
 import Button from "@/library/Button";
-import { Input, Label, Select, Slider, Textarea, useColorMode } from "theme-ui";
+import { Input, Label, Select, Textarea, useColorMode } from "theme-ui";
 import Box from "@/library/Box";
 import Image from "@/library/Image";
 import Checkbox from "@/library/Checksbox";
 import Radio from "@/library/Radio";
-import Arrow from "../assets/arrowDown.svg";
+import { FormFieldProp } from "@/interfaces/compTypes";
 
-function FormField({ component }: any) {
-  const resetForm = document?.getElementById("formField");
-
+function FormField({ component }: FormFieldProp) {
+  const resetForm = document?.getElementById("formField") as HTMLFormElement;
   const title = component?.formTitle;
   const subHead = component?.formSubhead;
   const subHeadTwo = component?.formSubheadTwo;
@@ -282,12 +280,7 @@ function FormField({ component }: any) {
             color: "services.invert",
           }}
         >
-          <Box
-            onSubmit={sendEmail}
-            as="form"
-            id="formField"
-            /*  onSubmit={sendEmail}  */
-          >
+          <Box onSubmit={sendEmail} as="form" id="formField">
             {field && field}
 
             {selectTitle && <Label variant="default">{selectTitle}</Label>}
@@ -330,7 +323,6 @@ function FormField({ component }: any) {
             {button && (
               <Button
                 type="submit"
-                /*   onSubmit={(e: any) => sendEmail(e, formData)} */
                 disabled={!formData.email}
                 color={button.color}
                 variant={button.variant}
@@ -351,44 +343,3 @@ function FormField({ component }: any) {
 }
 
 export default FormField;
-
-/* const form = useRef(); */
-/*   console.log(component); */
-/* const sendEmail = (e: any, form: any) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  }; */
-/*  const initialValues = {
-    name: "",
-    company: "",
-    email: "",
-    service: "",
-    message: "",
-  }; */
-
-/* const contactSubmit = (values: any, { resetForm, setSubmitting }: any) => {
-    emailjs.sendForm(
-      process.env.NEXT_PUBLIC_SERVICE_ID,
-      process.env.NEXT_PUBLIC_TEMPLATE_ID,
-      "form",
-      process.env.NEXT_PUBLIC_PUBLIC_KEY
-    );
-
-    setSubmitting(false);
-    resetForm();
-  }; */

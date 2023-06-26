@@ -25,7 +25,7 @@ const Nav = ({ children }: NavProps) => {
         gap: "30px",
         marginRight: "30px",
         color: "services.invert",
-        "@media screen and (max-width: 40em)": {
+        "@media screen and (max-width: 72em)": {
           alignItems: "revert",
           position: "fixed",
           flexDirection: "column",
@@ -37,7 +37,7 @@ const Nav = ({ children }: NavProps) => {
       }}
     >
       {children}
-      <Box sx={{ display: ["none", "flex"], cursor: "pointer" }}>
+      <Box sx={{ display: ["none", "none", "flex"], cursor: "pointer" }}>
         {colorMode === "light" ? (
           <DarkMode
             onClick={() =>
@@ -73,7 +73,7 @@ const Link = ({ children, href }: LinkProps) => {
           borderColor: "#6044B5",
           boxSizing: "border-box",
         },
-        "@media screen and (max-width: 40em)": {
+        "@media screen and (max-width: 72em)": {
           textAlign: "left",
           display: "flex",
           fontFamily: "Quicksand",

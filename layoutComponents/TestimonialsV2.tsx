@@ -2,7 +2,7 @@ import React from "react";
 import Flex from "@/library/Flex";
 import Text from "@/library/Text";
 import Image from "@/library/Image";
-import { TestimonialsV2Props } from "@/interfaces/bannerTypes";
+import { TestimonialsV2Props } from "@/interfaces/compTypes";
 import QuoteS from "../assets/quote.svg";
 
 function TestimonialsV2({ component }: TestimonialsV2Props) {

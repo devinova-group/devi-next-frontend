@@ -138,6 +138,78 @@ const getPages = gql`
           pagename
           comps {
             __typename
+            ... on ComponentBlocksListSection {
+              listBody {
+                body
+                position
+                variant
+              }
+              listTitle {
+                body
+                position
+                variant
+              }
+              listSubhead {
+                body
+                position
+                variant
+              }
+              listSubheadTwo {
+                body
+                position
+                variant
+              }
+              listItem {
+                listTitlePosition
+                listParagraphPosition
+                listTitle
+                listparagraph
+                listImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+            ... on ComponentBlocksTitleLinks {
+              itemsLayout
+              itemPostition
+              itemBackground
+              titleLinkBG {
+                darkBackground {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                lightBackground {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              titleLinkItem {
+                itemImgAltText
+                itemTitle
+                itemImg {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              titleLinkTitle {
+                body
+                position
+                variant
+              }
+            }
             ... on ComponentBlocksFormField {
               formLayout
               formSubheadTwo {

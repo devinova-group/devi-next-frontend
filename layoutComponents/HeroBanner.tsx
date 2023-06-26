@@ -5,7 +5,7 @@ import Image from "@/library/Image";
 import Text from "@/library/Text";
 import Box from "@/library/Box";
 import Button from "@/library/Button";
-import { HeroBannerProps } from "@/interfaces/bannerTypes";
+import { HeroBannerProps } from "@/interfaces/compTypes";
 import { useRouter } from "next/router";
 
 function HeroBanner({ component }: HeroBannerProps) {
@@ -71,7 +71,6 @@ function HeroBanner({ component }: HeroBannerProps) {
         {layout === "imageButton" && imagePosition === "left" && image}
         <Flex
           sx={{
-            alignItems: "left",
             justifyContent: "center",
             flexDirection: "column",
             gap: "30px",
@@ -94,7 +93,7 @@ function HeroBanner({ component }: HeroBannerProps) {
             <Text
               variant={paragraph.variant}
               sx={{
-                width: ["272px", "500px"],
+                width: ["350px", "500px"],
                 fontSize: [2, 3],
                 textAlign: `${paragraph.position}`,
                 color: `${gradient ? "white" : "services.invert"} `,
@@ -106,6 +105,7 @@ function HeroBanner({ component }: HeroBannerProps) {
           )}
           <Box
             sx={{
+              alignSelf: [`${paragraph.position}`, "start"],
               button: {
                 fontSize: [3, 4],
               },
@@ -117,7 +117,6 @@ function HeroBanner({ component }: HeroBannerProps) {
                   color: "white",
                   minWidth: "220px",
                   minHeight: "60px",
-                  fontSize: 4,
                 }}
                 variant={button.variant}
                 color={button.color}
