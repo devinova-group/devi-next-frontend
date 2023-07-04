@@ -4,29 +4,23 @@ import { keyframes } from "@emotion/react";
 import Text from "../Text";
 import Box from "../Box";
 import NavLink from "../NavLink";
-
 /* SVG */
 import ArrowUP from "..//../assets/arrow.svg";
 import ArrowDown from "..//../assets/arrowDown.svg";
 import Flex from "../Flex";
-
 export interface NavDropDownProps {
-  children: React.ReactNode;
-  title: string;
+  children?: React.ReactNode;
+  title?: string;
 }
 export interface ItemProps {
-  children: React.ReactNode;
-  href: string;
+  children?: React.ReactNode;
+  href?: string;
 }
 
 const NavDropDown = ({ children, title }: any) => {
   const fadeIn = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } });
   const [open, setOpen] = useState(false);
   const [dropDown, setDropDown] = useState(false);
-
-  const handleClick = (e: any) => {
-    setDropDown((e: any) => !e);
-  };
 
   return (
     <>
@@ -49,7 +43,7 @@ const NavDropDown = ({ children, title }: any) => {
             borderBottom: "0px",
           },
         }}
-        onClick={(e) => handleClick(e)}
+        onClick={() => setDropDown(!dropDown)}
       >
         {title}
       </Text>

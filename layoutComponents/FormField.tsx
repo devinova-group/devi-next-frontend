@@ -1,31 +1,24 @@
-import React, { useRef, useState } from "react";
-import Text from "@/library/Text";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import Flex from "@/library/Flex";
-import Button from "@/library/Button";
-import { Input, Label, Select, Textarea, useColorMode } from "theme-ui";
+import { useColorMode } from "theme-ui";
 import Box from "@/library/Box";
-import Image from "@/library/Image";
-import Checkbox from "@/library/Checksbox";
-import Radio from "@/library/Radio";
-import { FormFieldProp } from "@/interfaces/compTypes";
+import { FormData, FormFieldProp } from "@/interfaces/compTypes";
+import Label from "@/library/Label";
+import Textarea from "@/library/Textarea";
+import Input from "@/library/Input";
+import ImageSection from "./FormField/ImageSection";
+import Flex from "@/library/Flex";
+import Text from "@/library/Text";
+import Button from "@/library/Button";
+import Select from "@/library/Select";
 
 function FormField({ component }: FormFieldProp) {
   const resetForm = document?.getElementById("formField") as HTMLFormElement;
-  const title = component?.formTitle;
-  const subHead = component?.formSubhead;
-  const subHeadTwo = component?.formSubheadTwo;
-  const paragraph = component?.formParagraph;
-  const checkBoxTitle = component?.formCheckbox[0]?.checkboxTitle;
-  const radioTitle = component?.formRadio[0]?.radioTitle;
   const selectTitle = component?.formSelect[0]?.selectTitle;
   const layout = component?.formLayout;
+  const subHeadTwo = component?.formSubheadTwo;
   const button = component?.formSubmit;
-  const imageUrl = component.formImage?.image?.data?.attributes.url;
 
-  interface FormData {
-    [item: string]: any;
-  }
   const [formData, getFormData] = useState<FormData>({});
   console.log(formData);
   const sendEmail = (e: any) => {
@@ -48,38 +41,6 @@ function FormField({ component }: FormFieldProp) {
         }
       );
   };
-  /*   console.log(formData); */
-  const checkBox = component?.formCheckbox?.map((item: any, i: number) => (
-    <Label key={i}>
-      <Checkbox
-        defaultChecked={item.checkDefault}
-        name={item.checkboxName}
-        value={item.checkboxName}
-        onClick={(e: any) =>
-          getFormData({ ...formData, [checkBoxTitle]: e.target.value })
-        }
-      />
-      {item.checkboxLabel}
-    </Label>
-  ));
-
-  const radio = component?.formRadio?.map((item: any, i: number) => (
-    <Label key={i}>
-      <Radio
-        defaultChecked={item.defaultChecked}
-        name={item.radioName}
-        value={item.radioValue}
-        onChange={(e: any) =>
-          getFormData({
-            ...formData,
-            radioTitle: e.target.value,
-          })
-        }
-      />
-      {item.radioLabel}
-    </Label>
-  ));
-
   const textArea = component?.formTextArea?.map((item: any, i: number) => (
     <Box
       key={i}
@@ -134,8 +95,8 @@ function FormField({ component }: FormFieldProp) {
     const [colorMode] = useColorMode();
     const mode =
       colorMode === "light"
-        ? `url(${item.formIconDark.data.attributes.url})`
-        : `url(${item.formIconLight.data.attributes.url})`;
+        ? `url(${item?.formIconDark?.data?.attributes?.url})`
+        : `url(${item?.formIconLight?.data?.attributes?.url})`;
     return (
       <Box key={i}>
         <Label variant="default" htmlFor={item.fieldLabelHtml}>
@@ -164,58 +125,7 @@ function FormField({ component }: FormFieldProp) {
       </Box>
     );
   });
-  const imageSection = (
-    <Flex
-      sx={{
-        width: ["260px", "500px"],
-        flexDirection: "column",
-        gap: "20px",
-        color: "services.invert",
-        alignItems: "center",
-        /*  justifyContent: "center", */
-      }}
-    >
-      {title && (
-        <Text
-          variant={title.variant}
-          sx={{
-            fontFamily: "Quicksand",
-            alignSelf: `${title.position}`,
-          }}
-        >
-          {title.body}
-        </Text>
-      )}
-      {subHead && (
-        <Text
-          variant={subHead.variant}
-          sx={{
-            fontFamily: "Quicksand",
-            alignSelf: `${subHead.position}`,
-          }}
-        >
-          {subHead.body}
-        </Text>
-      )}
-      {paragraph && (
-        <Text
-          variant={paragraph.variant}
-          sx={{
-            width: ["260px", "500px"],
-            fontFamily: "Quicksand",
-            alignSelf: `${paragraph.position}`,
-          }}
-        >
-          {paragraph.body}
-        </Text>
-      )}
-      {imageUrl && (
-        <Box sx={{ width: ["260px", "500px"] }}>
-          <Image src={imageUrl} />
-        </Box>
-      )}
-    </Flex>
-  );
+  const imageSection = <ImageSection component={component} />;
 
   return (
     <Flex
@@ -313,17 +223,11 @@ function FormField({ component }: FormFieldProp) {
                 </Select>
               </Box>
             )}
-
-            {radioTitle && <Label variant="default">{radioTitle}</Label>}
-            {radio && radio}
-
-            {checkBoxTitle && <Label variant="default">{checkBoxTitle}</Label>}
-            {checkBox && checkBox}
             {textArea && textArea}
             {button && (
               <Button
                 type="submit"
-                disabled={!formData.email}
+                disabled={!formData.Email}
                 color={button.color}
                 variant={button.variant}
                 size={button.size}
@@ -336,10 +240,8 @@ function FormField({ component }: FormFieldProp) {
           </Box>
         </Box>
       </Flex>
-
       {layout === "rightForm" && imageSection}
     </Flex>
   );
 }
-
 export default FormField;

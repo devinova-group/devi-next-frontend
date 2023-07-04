@@ -5,11 +5,13 @@ import DesignatorNav from "./DesignatorNav";
 
 const Navigation = ({ data }: any) => {
   const nav = data?.navigation.data.attributes;
-  const logoDesktopLight = nav?.logo?.logoDesktopLight.data?.attributes.url;
-  const logoDesktopDark = nav?.logo?.logoDesktopDark.data?.attributes.url;
-  const logoMobileLight = nav?.logo?.logoMobileLight.data?.attributes.url;
-  const logoMobileDark = nav?.logo?.logoMobileDark.data?.attributes.url;
-  const link = nav?.logo?.link;
+  const logoDesktopLight = nav?.navLogo?.logoDesktopLight.data?.attributes.url;
+  const logoDesktopDark = nav?.navLogo?.logoDesktopDark.data?.attributes.url;
+  const logoMobileLight = nav?.navLogo?.logoMobileLight.data?.attributes.url;
+  const logoMobileDark = nav?.navLogo?.logoMobileDark.data?.attributes.url;
+  const link = nav?.navLogo?.logoURL;
+  const imgAltText = nav?.navLogo?.logoAltText;
+
   return (
     <Navbar>
       {nav && (

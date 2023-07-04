@@ -50,6 +50,7 @@ function TestimonialsV1({ component }: TestimonialsV1Props) {
     <>
       <Flex
         sx={{
+          paddingTop: "50px",
           alignItems: "center",
           justifyContent: "center",
           width: "100%",

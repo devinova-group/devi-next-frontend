@@ -1,20 +1,5 @@
 import { buttonVariant, buttonColors, buttonSize, textVariants } from "./types";
-/* listSectionTitle
-	Text 	
-listSectionSubhead
-	Text 	
-listSectionParagraph
-	Text 	
-ListItem
-	Component (repeatable)	
-listSectionSubheadTwo
-	Text 	
-  listImage
-	Media 	
-listTitle
-	Text 	
-listparagraph
- */
+
 type imageProp = {
   data: { attributes: { url: string | undefined | null } };
 };
@@ -31,8 +16,6 @@ export interface FormFieldProp {
     formSubhead?: textProp;
     formSubheadTwo?: textProp;
     formParagraph?: textProp;
-    formCheckbox?: any;
-    formRadio?: any;
     formSelect?: any;
     formLayout?: string;
     formSubmit?: any;
@@ -209,4 +192,8 @@ export interface HeroBannerProps {
       darkBackground: imageProp;
     };
   };
+}
+
+export interface FormData {
+  [item: string]: any;
 }

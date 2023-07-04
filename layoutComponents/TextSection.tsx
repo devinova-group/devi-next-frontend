@@ -31,8 +31,8 @@ function TextSection({ component }: TextSectionProps) {
   );
   const mode =
     colorMode === "light"
-      ? `url(${bgLignt}) center repeat`
-      : `url(${bgDark}) center repeat`;
+      ? `url(${bgLignt}) center no-repeat`
+      : `url(${bgDark}) center no-repeat`;
   return (
     <Flex
       sx={{
@@ -40,6 +40,7 @@ function TextSection({ component }: TextSectionProps) {
         justifyContent: "center",
         alignItems: "center",
         background: `${bgLignt ? `${mode}` : "services.background"}`,
+        backgroundSize: "cover",
       }}
     >
       <Flex

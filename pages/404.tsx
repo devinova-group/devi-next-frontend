@@ -1,4 +1,4 @@
-import { Box, Flex, Image, useColorMode } from "theme-ui";
+import { useColorMode } from "theme-ui";
 import { gql, useQuery } from "@apollo/client";
 import Text from "../library/Text";
 import Button from "@/library/Button";
@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import { buttonComponent } from "@/interfaces/sectionTypes";
 import Loading from "@/library/Loading";
 import { getPages } from "@/interfaces/graphql/Query";
+import Flex from "@/library/Flex";
+import Image from "@/library/Image";
 
 const NotFound = () => {
   const { data, loading, error } = useQuery(getPages);
@@ -25,29 +27,27 @@ const NotFound = () => {
   console.log(data);
 
   return (
-    <Box
+    <Flex
       sx={{
-        display: "flex",
         background: "notFound.notFoundBgr",
-        height: "100%",
         width: "100%",
         flexDirection: "column",
-        "@media screen and (max-width: 700px)": {},
       }}
     >
-      <Box
+      <Flex
         sx={{
-          marginLeft: "auto",
-          marginRight: "auto",
+          alignItems: "center",
+          justifyContent: "center",
           marginTop: "6rem",
-          width: "auto",
-          "@media screen and (max-width: 645px)": {
+          /*  width: "auto", */
+          /*      "@media screen and (max-width: 645px)": {
             marginLeft: "2rem",
             marginRight: "2rem",
-          },
+          }, */
         }}
       >
         <Image
+          sx={{ width: ["300px", "600px"] }}
           src={
             mode === "dark"
               ? notfound?.image.data.attributes.url
@@ -55,10 +55,9 @@ const NotFound = () => {
           }
           alt="404"
         />
-      </Box>
-      <Box
+      </Flex>
+      <Flex
         sx={{
-          display: "flex",
           justifyContent: "center",
           alignItems: "center",
           marginTop: "3rem",
@@ -69,11 +68,6 @@ const NotFound = () => {
           variant="H4"
           sx={{
             color: "text",
-            "@media screen and (max-width: 700px)": {
-              fontSize: "2rem",
-              marginLeft: "2rem",
-              marginRight: "2rem",
-            },
           }}
         >
           {notfound?.warningHeader}
@@ -85,36 +79,30 @@ const NotFound = () => {
             width: "29rem",
             textAlign: "center",
             marginTop: "1rem",
-            "@media screen and (max-width: 700px)": {
-              width: "auto",
-              marginLeft: "2rem",
-              marginRight: "2rem",
-            },
           }}
         >
           {notfound?.warningInfo}
         </Text>
-      </Box>
-      <Box
+      </Flex>
+      <Flex
         sx={{
-          display: "flex",
           justifyContent: "center",
           alignItems: "center",
           marginTop: "1rem",
           marginBottom: "5rem",
           gap: "1rem",
-          "@media screen and (max-width: 700px)": {
+          /*    "@media screen and (max-width: 700px)": {
             flexDirection: "column",
-          },
+          }, */
         }}
       >
         {notfound?.button ? (
           <Flex
             sx={{
               gap: "1rem",
-              "@media screen and (max-width: 700px)": {
+              /*    "@media screen and (max-width: 700px)": {
                 flexDirection: "column",
-              },
+              }, */
             }}
           >
             {notfound.button.map((button: buttonComponent, i: number) => {
@@ -136,8 +124,8 @@ const NotFound = () => {
         ) : (
           <></>
         )}
-      </Box>
-    </Box>
+      </Flex>
+    </Flex>
   );
 };
 

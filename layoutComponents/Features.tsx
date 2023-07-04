@@ -41,7 +41,7 @@ const FeaturesSection = ({ component }: featuresSectionProps) => {
             <Grid
               key={i}
               sx={{
-                width: "100%",
+                width: ["", "100%"],
                 height: "100%",
                 gridTemplateColumns: `${
                   i % 2 ? `1fr ${cardSize} 2fr` : `2fr ${cardSize} 1fr`

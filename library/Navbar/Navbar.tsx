@@ -32,7 +32,7 @@ const Navbar = ({ children }: NavbarProps) => {
   return (
     <Flex
       sx={{
-        position: "fixed",
+        position: ["fixed", "relative"],
         width: "100%",
         height: ["5rem", "7rem"],
         gap: "30px",

@@ -16,6 +16,7 @@ function TextBanner({ component }: TextBannerProps) {
   return (
     <Flex
       sx={{
+        paddingTop: ["5rem", "0rem"],
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
@@ -76,31 +77,17 @@ function TextBanner({ component }: TextBannerProps) {
             }}
           />
         )}
-
-        {title ? (
-          <Text
-            variant={title.variant}
-            sx={{
-              position: "absolute",
-              fontSize: [6, 9],
-              fontFamily: "Quicksand",
-              color: `${
-                gradient || image || imageMobile
-                  ? "white"
-                  : "services.background"
-              }`,
-            }}
-          >
-            {title.body}
-          </Text>
-        ) : (
-          <Box
-            sx={{
-              position: "absolute",
-              fontFamily: "Quicksand",
-            }}
-          />
-        )}
+        <Text
+          variant={title?.variant}
+          sx={{
+            position: "absolute",
+            color: `${
+              gradient || image || imageMobile ? "white" : "services.background"
+            }`,
+          }}
+        >
+          {title?.body}
+        </Text>
       </Flex>
     </Flex>
   );

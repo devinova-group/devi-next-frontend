@@ -32,60 +32,58 @@ const getPages = gql`
     footer {
       data {
         attributes {
+          postNummerCity
           email
           adress
-          location
+          locationTitle
           number
-          twitter {
-            data {
-              attributes {
-                url
+          footerLogo {
+            logoMobileLight {
+              data {
+                attributes {
+                  url
+                }
               }
             }
-          }
-          instagram {
-            data {
-              attributes {
-                url
+            logoMobileDark {
+              data {
+                attributes {
+                  url
+                }
               }
             }
+            logoURL
+            logoAltText
           }
-          linkedin {
-            data {
-              attributes {
-                url
+          socialTitle
+          infoText
+          footerSocial {
+            imageLight {
+              data {
+                attributes {
+                  url
+                }
               }
             }
-          }
-          instaDark {
-            data {
-              attributes {
-                url
+            imageDark {
+              data {
+                attributes {
+                  url
+                }
               }
             }
+            url
           }
-          twitterDark {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          linkedinDark {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
+          copyright
         }
       }
     }
     navigation {
       data {
         attributes {
-          logo {
-            link
+          navLogo {
+            logoURL
+            logoAltText
             logoDesktopLight {
               data {
                 attributes {
@@ -216,21 +214,6 @@ const getPages = gql`
                 body
                 position
                 variant
-              }
-              formRadio {
-                __typename
-                radioLabel
-                radioName
-                radioValue
-                defaultChecked
-                radioTitle
-              }
-              formCheckbox {
-                __typename
-                checkboxLabel
-                checkboxName
-                checkDefault
-                checkboxTitle
               }
               formTextArea {
                 __typename
