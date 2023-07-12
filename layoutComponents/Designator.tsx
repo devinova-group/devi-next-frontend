@@ -6,6 +6,9 @@ import TextSection from "./TextSection";
 import HeroBanner from "./HeroBanner";
 import TestimonialsV1 from "./TestimonialsV1";
 import TestimonialsV2 from "./TestimonialsV2";
+import FormField from "./FormField";
+import TitleLinks from "./TitleLinks";
+import ListSection from "./ListSection";
 
 const Designator = ({ component }: any) => {
   let section = <></>;
@@ -41,6 +44,16 @@ const Designator = ({ component }: any) => {
 
     case "ComponentBlocksTestimonialV2":
       section = <TestimonialsV2 component={component} />;
+      break;
+
+    case "ComponentBlocksFormField":
+      section = <FormField component={component} />;
+      break;
+    case "ComponentBlocksTitleLinks":
+      section = <TitleLinks component={component} />;
+      break;
+    case "ComponentBlocksListSection":
+      section = <ListSection component={component} />;
       break;
 
     default:

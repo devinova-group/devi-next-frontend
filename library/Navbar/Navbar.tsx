@@ -1,6 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { useColorMode } from "theme-ui";
+import {
+  BrandProps,
+  CollapseProps,
+  NavbarProps,
+} from "@/interfaces/compInterfaces";
 /* Library */
 import Box from "../Box";
 import Flex from "../Flex";
@@ -13,31 +18,18 @@ import DarkMode from "..//../assets/DarkMode.svg";
 import LightMode from "..//../assets/LightMode.svg";
 import Image from "../Image";
 
-export interface NavbarProps {
-  children: React.ReactNode;
-}
-export interface BrandProps {
-  href?: string;
-  logoDesktopLight?: string;
-  logoDesktopDark?: string;
-  logoMobileLight?: string;
-  logoMobileDark?: string;
-  children?: React.ReactNode;
-}
-export interface CollapseProps {
-  children: React.ReactNode;
-}
-
 const Navbar = ({ children }: NavbarProps) => {
   return (
     <Flex
       sx={{
+        position: ["fixed", "relative"],
         width: "100%",
-        height: "7rem",
+        height: ["5rem", "7rem"],
         gap: "30px",
         alignItems: "center",
         justifyContent: "space-between",
         backgroundColor: "services.background",
+        zIndex: 10,
       }}
     >
       {children}
@@ -52,6 +44,7 @@ const Brand = ({
   logoDesktopDark,
   logoMobileLight,
   logoMobileDark,
+  imgAltText,
 }: BrandProps) => {
   const [colorMode] = useColorMode();
   return (
@@ -72,8 +65,14 @@ const Brand = ({
         },
       }}
     >
-      <Image src={colorMode === "light" ? logoMobileDark : logoMobileLight} />
-      <Image src={colorMode === "light" ? logoDesktopDark : logoDesktopLight} />
+      <Image
+        alt={imgAltText && imgAltText}
+        src={colorMode === "light" ? logoMobileDark : logoMobileLight}
+      />
+      <Image
+        alt={imgAltText && imgAltText}
+        src={colorMode === "light" ? logoDesktopDark : logoDesktopLight}
+      />
       {children}
     </Link>
   );
@@ -88,7 +87,7 @@ const Collapse = ({ children }: CollapseProps) => {
         sx={{
           display: "contents",
           marginTop: "2.5rem",
-          "@media screen and (max-width: 40em)": {
+          "@media screen and (max-width: 72em)": {
             display: "none",
           },
         }}
@@ -103,7 +102,7 @@ const Collapse = ({ children }: CollapseProps) => {
           height: "30px",
           cursor: "pointer",
           marginRight: "20px",
-          "@media screen and (min-width: 40em)": {
+          "@media screen and (min-width: 72em)": {
             display: "none",
           },
         }}
@@ -134,7 +133,7 @@ const Collapse = ({ children }: CollapseProps) => {
                 fill: "services.invert",
               },
             },
-            "@media screen and (min-width: 40em)": {
+            "@media screen and (min-width: 72em)": {
               display: "none",
             },
           }}
@@ -149,7 +148,7 @@ const Collapse = ({ children }: CollapseProps) => {
           <Flex
             sx={{
               position: "fixed",
-              top: 0,
+              top: -10,
               right: 0,
               flexDirection: "column",
               width: "100%",
@@ -158,9 +157,7 @@ const Collapse = ({ children }: CollapseProps) => {
               background: "services.background",
               alignText: "left",
               zIndex: 1,
-              "a:nth-of-type(1)": {
-                marginTop: "100px",
-              },
+              marginTop: "100px",
             }}
           >
             {children}

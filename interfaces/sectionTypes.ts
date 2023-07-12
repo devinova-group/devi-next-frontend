@@ -1,21 +1,4 @@
-type sectionType = "ComponentBlocksSection" | "ComponentBlocksFeatures";
-
-type positionVariants = "left" | "center" | "right";
-
-type textVariants =
-  | "H1"
-  | "H2"
-  | "H3"
-  | "H4"
-  | "H5"
-  | "H6"
-  | "Subhead"
-  | "Body1"
-  | "Body2"
-  | "Button"
-  | "Caption"
-  | "SmallCaption"
-  | "Overline";
+import { positionVariants, textVariants } from "./types";
 
 interface textComponent {
   body: string;
@@ -30,8 +13,8 @@ interface cardComponent {
   body: string;
 }
 
-type img = {data: {attributes: {url: string}}};
-type images = {data: [attributes: {url: string}]};
+type img = { data: { attributes: { url?: string } } };
+type images = { data: [attributes: { url?: string }] };
 type imgPosition = "right" | "left";
 type mobileImgPosition = "top" | "bottom";
 type objfit = "none" | "contain" | "cover" | "fill" | "scale-down";

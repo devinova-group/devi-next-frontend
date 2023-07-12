@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { getPages } from "@/interfaces/graphql/Query";
 import Navigation from "@/layoutComponents/Navigation";
-import Footer from "@/library/Footer";
+import Footer from "@/layoutComponents/Footer";
 import Loading from "@/library/Loading";
 
 function Layout({ children }: any) {

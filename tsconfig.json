@@ -22,7 +22,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "library/contact/Contact.jsx"
+    "library/contact/Contact.jsx",
+    "emailjs-env.d.ts"
   ],
   "exclude": ["node_modules"]
 }

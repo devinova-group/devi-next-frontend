@@ -3,19 +3,20 @@ import Flex from "@/library/Flex";
 import Image from "@/library/Image";
 import Text from "@/library/Text";
 import Box from "@/library/Box";
-import { TextBannerProps } from "@/interfaces/bannerTypes";
+import { TextBannerProps } from "@/interfaces/compInterfaces";
 
 function TextBanner({ component }: TextBannerProps) {
-  const title = component.titleTextBanner;
-  const gradient = component.gradientTextBanner;
-  const image = component.imgTextBanner.image.data?.attributes.url;
-  const imageMobile = component.imgTextBanner.mobileImage.data?.attributes.url;
+  const title = component?.titleTextBanner;
+  const gradient = component?.gradientTextBanner;
+  const image = component.imgTextBanner?.image.data?.attributes.url;
+  const imageMobile = component.imgTextBanner?.mobileImage.data?.attributes.url;
   const imageWidth = component.imgTextBanner?.width;
   const imageHeight = component.imgTextBanner?.height;
   const imageAlt = component.imgTextBanner?.altText;
   return (
     <Flex
       sx={{
+        paddingTop: ["5rem", "0rem"],
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
@@ -76,31 +77,17 @@ function TextBanner({ component }: TextBannerProps) {
             }}
           />
         )}
-
-        {title ? (
-          <Text
-            variant={title.variant}
-            sx={{
-              position: "absolute",
-              fontSize: [6, 9],
-              fontFamily: "Quicksand",
-              color: `${
-                gradient || image || imageMobile
-                  ? "white"
-                  : "services.background"
-              }`,
-            }}
-          >
-            {title.body}
-          </Text>
-        ) : (
-          <Box
-            sx={{
-              position: "absolute",
-              fontFamily: "Quicksand",
-            }}
-          />
-        )}
+        <Text
+          variant={title?.variant}
+          sx={{
+            position: "absolute",
+            color: `${
+              gradient || image || imageMobile ? "white" : "services.background"
+            }`,
+          }}
+        >
+          {title?.body}
+        </Text>
       </Flex>
     </Flex>
   );

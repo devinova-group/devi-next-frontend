@@ -5,7 +5,7 @@ import Image from "@/library/Image";
 import Text from "@/library/Text";
 import Box from "@/library/Box";
 import Button from "@/library/Button";
-import { HeroBannerProps } from "@/interfaces/bannerTypes";
+import { HeroBannerProps } from "@/interfaces/compInterfaces";
 import { useRouter } from "next/router";
 
 function HeroBanner({ component }: HeroBannerProps) {
@@ -55,7 +55,7 @@ function HeroBanner({ component }: HeroBannerProps) {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: ["column", "row"],
-          gap: ["5%", "220px"],
+          gap: ["5%", ""],
           background: `${
             gradient
               ? `linear-gradient(92.89deg, rgba(96, 68, 181, 0.9) 0%, rgba(1, 147, 147, 0.9) 99.21%)`
@@ -71,7 +71,6 @@ function HeroBanner({ component }: HeroBannerProps) {
         {layout === "imageButton" && imagePosition === "left" && image}
         <Flex
           sx={{
-            alignItems: "left",
             justifyContent: "center",
             flexDirection: "column",
             gap: "30px",
@@ -83,6 +82,7 @@ function HeroBanner({ component }: HeroBannerProps) {
               sx={{
                 fontFamily: "Quicksand",
                 fontSize: [4, 6],
+                textAlign: `${title.position}`,
                 color: `${gradient ? "white" : "services.invert"} `,
               }}
             >
@@ -93,7 +93,7 @@ function HeroBanner({ component }: HeroBannerProps) {
             <Text
               variant={paragraph.variant}
               sx={{
-                width: ["272px", "500px"],
+                width: ["350px", "500px"],
                 fontSize: [2, 3],
                 textAlign: `${paragraph.position}`,
                 color: `${gradient ? "white" : "services.invert"} `,
@@ -105,6 +105,7 @@ function HeroBanner({ component }: HeroBannerProps) {
           )}
           <Box
             sx={{
+              alignSelf: [`${paragraph.position}`, "start"],
               button: {
                 fontSize: [3, 4],
               },
@@ -112,6 +113,11 @@ function HeroBanner({ component }: HeroBannerProps) {
           >
             {layout === "imageButton" && button && (
               <Button
+                sx={{
+                  color: "white",
+                  minWidth: "220px",
+                  minHeight: "60px",
+                }}
                 variant={button.variant}
                 color={button.color}
                 size={button.size}
@@ -127,6 +133,7 @@ function HeroBanner({ component }: HeroBannerProps) {
         {layout === "actionButton" && (
           <Box sx={{ width: "280px" }}>
             <Button
+              sx={{ color: "white" }}
               variant={button.variant}
               color={button.color}
               size={button.size}

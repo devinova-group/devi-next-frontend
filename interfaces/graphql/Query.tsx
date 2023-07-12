@@ -1,91 +1,61 @@
 import { gql } from "@apollo/client";
 const getPages = gql`
-  query {
-    notfound {
-      data {
-        attributes {
-          warningHeader
-          warningInfo
-          image {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          imageLight {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          button {
-            text
-            color
-            size
-            variant
-          }
-        }
-      }
-    }
+  query GetAllData {
     footer {
       data {
         attributes {
+          postNummerCity
           email
           adress
-          location
+          locationTitle
           number
-          twitter {
-            data {
-              attributes {
-                url
+          footerLogo {
+            logoMobileLight {
+              data {
+                attributes {
+                  url
+                }
               }
             }
-          }
-          instagram {
-            data {
-              attributes {
-                url
+            logoMobileDark {
+              data {
+                attributes {
+                  url
+                }
               }
             }
+            logoURL
+            logoAltText
           }
-          linkedin {
-            data {
-              attributes {
-                url
+          socialTitle
+          infoText
+          footerSocial {
+            imageLight {
+              data {
+                attributes {
+                  url
+                }
               }
             }
-          }
-          instaDark {
-            data {
-              attributes {
-                url
+            imageDark {
+              data {
+                attributes {
+                  url
+                }
               }
             }
+            url
           }
-          twitterDark {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          linkedinDark {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
+          copyright
         }
       }
     }
     navigation {
       data {
         attributes {
-          logo {
-            link
+          navLogo {
+            logoURL
+            logoAltText
             logoDesktopLight {
               data {
                 attributes {
@@ -137,6 +107,159 @@ const getPages = gql`
         attributes {
           pagename
           comps {
+            __typename
+            ... on ComponentBlocksListSection {
+              listBody {
+                body
+                position
+                variant
+              }
+              listTitle {
+                body
+                position
+                variant
+              }
+              listSubhead {
+                body
+                position
+                variant
+              }
+              listSubheadTwo {
+                body
+                position
+                variant
+              }
+              listItem {
+                listTitlePosition
+                listParagraphPosition
+                listTitle
+                listparagraph
+                listImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+            ... on ComponentBlocksTitleLinks {
+              itemsLayout
+              itemPostition
+              itemBackground
+              titleLinkBG {
+                darkBackground {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                lightBackground {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              titleLinkItem {
+                itemImgAltText
+                itemTitle
+                itemImg {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              titleLinkTitle {
+                body
+                position
+                variant
+              }
+            }
+            ... on ComponentBlocksFormField {
+              formLayout
+              formSubheadTwo {
+                body
+                position
+                variant
+              }
+              formTextArea {
+                __typename
+                textAreaName
+                textAreaPlaceholder
+                textAreaRows
+                textAreaMb
+                textAreaLabel
+                textAreaHtml
+              }
+              formSelect {
+                __typename
+                selectOption
+                selectDefault
+                selectTitle
+              }
+              formSubmit {
+                text
+                color
+                size
+                variant
+                destination
+              }
+              formTitle {
+                body
+                position
+                variant
+              }
+              formSubhead {
+                body
+                position
+                variant
+              }
+              formParagraph {
+                body
+                position
+                variant
+              }
+              formImage {
+                width
+                height
+                imagesPosition
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+              formField {
+                __typename
+                fieldLabel
+                fieldName
+                fieldLabelHtml
+                fieldPlaceholder
+                fieldMb
+                fieldType
+                formIconLight {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                formIconDark {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
             ... on ComponentBlocksFeatures {
               cards {
                 variant

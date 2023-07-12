@@ -2,7 +2,7 @@ import React from "react";
 import Flex from "@/library/Flex";
 import Text from "@/library/Text";
 import Image from "@/library/Image";
-import { TextSectionProps } from "@/interfaces/bannerTypes";
+import { TextSectionProps } from "@/interfaces/compInterfaces";
 import { useColorMode } from "theme-ui";
 
 function TextSection({ component }: TextSectionProps) {
@@ -31,8 +31,8 @@ function TextSection({ component }: TextSectionProps) {
   );
   const mode =
     colorMode === "light"
-      ? `url(${bgLignt}) center repeat`
-      : `url(${bgDark}) center repeat`;
+      ? `url(${bgLignt}) center no-repeat`
+      : `url(${bgDark}) center no-repeat`;
   return (
     <Flex
       sx={{
@@ -40,6 +40,7 @@ function TextSection({ component }: TextSectionProps) {
         justifyContent: "center",
         alignItems: "center",
         background: `${bgLignt ? `${mode}` : "services.background"}`,
+        backgroundSize: "cover",
       }}
     >
       <Flex
@@ -61,25 +62,27 @@ function TextSection({ component }: TextSectionProps) {
           }}
         >
           {imagePosition === "top" && image}
-          <Text
-            variant={title.variant}
-            sx={{
-              color: "services.invert",
-              fontFamily: "Quicksand",
-              fontSize: 6,
-              alignSelf: [
-                "center",
-                `
+          {title && (
+            <Text
+              variant={title.variant}
+              sx={{
+                color: "services.invert",
+                fontFamily: "Quicksand",
+                fontSize: 6,
+                alignSelf: [
+                  "center",
+                  `
               ${
                 imagePosition === ("left" || "right")
                   ? `${title.position}`
                   : "start"
               }`,
-              ],
-            }}
-          >
-            {title.body}
-          </Text>
+                ],
+              }}
+            >
+              {title.body}
+            </Text>
+          )}
           {paragraph && (
             <Text
               variant={paragraph.variant}

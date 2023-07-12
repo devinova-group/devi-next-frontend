@@ -11,6 +11,7 @@ import heading from "./heading";
 import modal from "./modal";
 import tooltip from "./tooltip";
 import box from "./box";
+import forms from "./forms";
 
 export const theme = {
   space: [
@@ -23,7 +24,7 @@ export const theme = {
   lineHeights: [0, "24px", "32px", "48px", "60px", "72px", "96px"],
   letterSpacings: [1, 2, 2.5, 3, 3.5],
   zIndices: [0, 250, 500, 1000, 1500],
-  breakpoints: ["600px"],
+  breakpoints: ["960px", "1150px"],
   colors,
   text,
   box,
@@ -37,6 +38,7 @@ export const theme = {
   heading,
   modal,
   tooltip,
+  forms,
 };
 
 export default theme;

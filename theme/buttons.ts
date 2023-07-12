@@ -1,4 +1,4 @@
-import {Theme} from "theme-ui";
+import { Theme } from "theme-ui";
 
 const buttons: Theme["buttons"] = {
   primary: {
@@ -8,7 +8,6 @@ const buttons: Theme["buttons"] = {
     cursor: "pointer",
     borderRadius: "8px",
     border: `solid 2px`,
-    color: "buttonText",
     margin: 0,
     padding: 0,
     "&:hover": {},
