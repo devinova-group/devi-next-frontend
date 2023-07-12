@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useColorMode } from "theme-ui";
 import Box from "@/library/Box";
-import { FormData, FormFieldProp } from "@/interfaces/compTypes";
+import { FormData, FormFieldProp } from "@/interfaces/compInterfaces";
 import Label from "@/library/Label";
 import Textarea from "@/library/Textarea";
 import Input from "@/library/Input";

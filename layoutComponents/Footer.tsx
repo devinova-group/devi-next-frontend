@@ -4,6 +4,8 @@ import Text from "../library/Text";
 import Flex from "@/library/Flex";
 import Box from "@/library/Box";
 import Image from "@/library/Image";
+import Link from "next/link";
+import { FooterProps } from "@/interfaces/cards";
 
 const Footer = ({ data }: any) => {
   const [colorMode] = useColorMode();
@@ -12,8 +14,9 @@ const Footer = ({ data }: any) => {
   const logoLight = logo?.logoMobileLight?.data?.attributes?.url;
   const logoDark = logo?.logoMobileDark?.data?.attributes?.url;
   const social = footer?.footerSocial;
+  const logoURL = logo?.logoURL;
   const mode = colorMode === "light" ? logoDark : logoLight;
-
+  console.log(logoURL);
   return (
     <>
       <Flex
@@ -69,7 +72,13 @@ const Footer = ({ data }: any) => {
               gap: "30px",
             }}
           >
-            <Image sx={{ width: ["75px", "54px"] }} src={mode && mode} />
+            <Link href={logoURL && logoURL}>
+              <Image
+                sx={{ width: ["75px", "54px"] }}
+                src={mode && mode}
+                alt="Logo"
+              />
+            </Link>
             <Text variant="Caption" sx={{ color: "services.invert" }}>
               {footer?.infoText}
             </Text>
@@ -104,7 +113,15 @@ const Footer = ({ data }: any) => {
                     colorMode === "light"
                       ? item?.imageDark?.data?.attributes?.url
                       : item?.imageLight?.data?.attributes?.url;
-                  return <Image key={i} width="22px" src={modeSocial} />;
+                  return (
+                    <a href={item.url} key={i}>
+                      <Image
+                        width="22px"
+                        src={modeSocial}
+                        alt="Social images"
+                      />
+                    </a>
+                  );
                 })}
             </Flex>
           </Flex>

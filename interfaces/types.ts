@@ -50,6 +50,16 @@ export type buttonColor = "primary" | "error" | "success";
 
 export type objfit = "none" | "contain" | "cover" | "fill" | "scale-down";
 
+export type imageProp = {
+  data: { attributes: { url: string | undefined | null } };
+};
+
+export type textProp = {
+  variant?: string;
+  position?: string;
+  body?: string;
+};
+
 interface button {
   text: string;
   color: buttonColor;

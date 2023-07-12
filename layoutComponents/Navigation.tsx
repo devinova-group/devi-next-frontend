@@ -21,6 +21,7 @@ const Navigation = ({ data }: any) => {
           logoDesktopDark={logoDesktopDark}
           logoMobileLight={logoMobileLight}
           logoMobileDark={logoMobileDark}
+          imgAltText={imgAltText}
         />
       )}
       <Navbar.Collapse>

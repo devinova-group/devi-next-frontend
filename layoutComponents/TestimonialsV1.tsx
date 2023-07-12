@@ -3,7 +3,7 @@ import Grid from "@/library/Grid";
 import Text from "@/library/Text";
 import React from "react";
 import Image from "@/library/Image";
-import { TestimonialsV1Props } from "@/interfaces/compTypes";
+import { TestimonialsV1Props } from "@/interfaces/compInterfaces";
 
 function TestimonialsV1({ component }: TestimonialsV1Props) {
   const title = component?.titleV1;

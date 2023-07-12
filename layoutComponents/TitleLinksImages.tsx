@@ -1,4 +1,4 @@
-import { TitleLinksProp } from "@/interfaces/compTypes";
+import { TitleLinksProp } from "@/interfaces/compInterfaces";
 import Box from "@/library/Box";
 import Text from "@/library/Text";
 import React from "react";

@@ -1,6 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { useColorMode } from "theme-ui";
+import {
+  BrandProps,
+  CollapseProps,
+  NavbarProps,
+} from "@/interfaces/compInterfaces";
 /* Library */
 import Box from "../Box";
 import Flex from "../Flex";
@@ -12,21 +17,6 @@ import Close from "..//../assets/x-close.svg";
 import DarkMode from "..//../assets/DarkMode.svg";
 import LightMode from "..//../assets/LightMode.svg";
 import Image from "../Image";
-
-export interface NavbarProps {
-  children: React.ReactNode;
-}
-export interface BrandProps {
-  href?: string;
-  logoDesktopLight?: string;
-  logoDesktopDark?: string;
-  logoMobileLight?: string;
-  logoMobileDark?: string;
-  children?: React.ReactNode;
-}
-export interface CollapseProps {
-  children: React.ReactNode;
-}
 
 const Navbar = ({ children }: NavbarProps) => {
   return (
@@ -54,6 +44,7 @@ const Brand = ({
   logoDesktopDark,
   logoMobileLight,
   logoMobileDark,
+  imgAltText,
 }: BrandProps) => {
   const [colorMode] = useColorMode();
   return (
@@ -74,8 +65,14 @@ const Brand = ({
         },
       }}
     >
-      <Image src={colorMode === "light" ? logoMobileDark : logoMobileLight} />
-      <Image src={colorMode === "light" ? logoDesktopDark : logoDesktopLight} />
+      <Image
+        alt={imgAltText && imgAltText}
+        src={colorMode === "light" ? logoMobileDark : logoMobileLight}
+      />
+      <Image
+        alt={imgAltText && imgAltText}
+        src={colorMode === "light" ? logoDesktopDark : logoDesktopLight}
+      />
       {children}
     </Link>
   );

@@ -5,7 +5,7 @@ import Image from "@/library/Image";
 import Text from "@/library/Text";
 import Box from "@/library/Box";
 import Button from "@/library/Button";
-import { HeroBannerProps } from "@/interfaces/compTypes";
+import { HeroBannerProps } from "@/interfaces/compInterfaces";
 import { useRouter } from "next/router";
 
 function HeroBanner({ component }: HeroBannerProps) {

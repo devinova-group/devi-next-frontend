@@ -2,8 +2,8 @@ import React from "react";
 import Flex from "@/library/Flex";
 import Text from "@/library/Text";
 import Image from "@/library/Image";
-import { TestimonialsV2Props } from "@/interfaces/compTypes";
 import QuoteS from "../assets/quote.svg";
+import { TestimonialsV2Props } from "@/interfaces/compInterfaces";
 
 function TestimonialsV2({ component }: TestimonialsV2Props) {
   const title = component?.titleV2;

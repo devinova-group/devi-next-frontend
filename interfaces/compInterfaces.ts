@@ -1,15 +1,37 @@
-import { buttonVariant, buttonColors, buttonSize, textVariants } from "./types";
+import {
+  buttonVariant,
+  buttonColors,
+  buttonSize,
+  textVariants,
+  textProp,
+  imageProp,
+} from "./types";
 
-type imageProp = {
-  data: { attributes: { url: string | undefined | null } };
-};
+/* Navigation */
+export interface NavProps {
+  children: React.ReactNode;
+}
+export interface LinkProps {
+  children: React.ReactNode;
+  href: string;
+}
+export interface NavbarProps {
+  children: React.ReactNode;
+}
+export interface BrandProps {
+  href?: string;
+  logoDesktopLight?: string;
+  logoDesktopDark?: string;
+  logoMobileLight?: string;
+  logoMobileDark?: string;
+  imgAltText?: string;
+  children?: React.ReactNode;
+}
+export interface CollapseProps {
+  children: React.ReactNode;
+}
 
-type textProp = {
-  variant?: string;
-  position?: string;
-  body?: string;
-};
-
+/* Form Field */
 export interface FormFieldProp {
   component: {
     formTitle?: textProp;
@@ -24,7 +46,11 @@ export interface FormFieldProp {
     formField?: any;
   };
 }
-
+/* Form Data */
+export interface FormData {
+  [item: string]: any;
+}
+/* List Section */
 export interface ListSectionProp {
   component?: {
     listTitle?: textProp;
@@ -39,7 +65,7 @@ export interface ListSectionProp {
     listImage: { data: { attributes: { url: string | undefined } } };
   };
 }
-
+/* Title Links */
 export interface TitleLinksProp {
   component: {
     gallery?: Array<object>;
@@ -56,60 +82,7 @@ export interface TitleLinksProp {
     galleryImg?: imageProp;
   };
 }
-
-export interface TestimonialsV2Props {
-  component: {
-    __typename: string;
-    quote: boolean;
-    titleV2: {
-      body: string;
-      position: "center" | "end" | "start";
-      variant: string;
-    };
-
-    paragraphV2: {
-      body: string;
-      position: "center" | "end" | "start";
-      variant: string;
-    };
-    imgV2: {
-      width: string;
-      height: string;
-      imagesPosition: string;
-      altText: string;
-      mobileImage: imageProp;
-      image: imageProp;
-    };
-  };
-}
-export interface TestimonialsV1Props {
-  component: {
-    __typename: string;
-    titleV1: {
-      body: string;
-      position: "center" | "end" | "start";
-      variant: string;
-    };
-    subheadV1: {
-      body: string;
-      position: "center" | "end" | "start";
-      variant: string;
-    };
-    paragraphV1: {
-      body: string;
-      position: "center" | "end" | "start";
-      variant: string;
-    };
-    imgV1: {
-      width: string;
-      height: string;
-      imagesPosition: string;
-      altText: string;
-      mobileImage: imageProp;
-      image: imageProp;
-    };
-  };
-}
+/* Text Banner */
 export interface TextBannerProps {
   component: {
     __typename: string;
@@ -129,6 +102,7 @@ export interface TextBannerProps {
     };
   };
 }
+/* Text Section */
 export interface TextSectionProps {
   component: {
     __typename: string;
@@ -156,7 +130,7 @@ export interface TextSectionProps {
     };
   };
 }
-
+/* Hero Banner */
 export interface HeroBannerProps {
   component: {
     __typename: string;
@@ -194,6 +168,58 @@ export interface HeroBannerProps {
   };
 }
 
-export interface FormData {
-  [item: string]: any;
+/* Testimonials V2 */
+export interface TestimonialsV2Props {
+  component: {
+    __typename: string;
+    quote: boolean;
+    titleV2: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+
+    paragraphV2: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    imgV2: {
+      width: string;
+      height: string;
+      imagesPosition: string;
+      altText: string;
+      mobileImage: imageProp;
+      image: imageProp;
+    };
+  };
+}
+/* Testimonials V1 */
+export interface TestimonialsV1Props {
+  component: {
+    __typename: string;
+    titleV1: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    subheadV1: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    paragraphV1: {
+      body: string;
+      position: "center" | "end" | "start";
+      variant: string;
+    };
+    imgV1: {
+      width: string;
+      height: string;
+      imagesPosition: string;
+      altText: string;
+      mobileImage: imageProp;
+      image: imageProp;
+    };
+  };
 }

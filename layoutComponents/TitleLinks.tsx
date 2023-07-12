@@ -5,7 +5,7 @@ import Grid from "@/library/Grid";
 import Box from "@/library/Box";
 import Text from "@/library/Text";
 import { useColorMode } from "theme-ui";
-import { TitleLinksProp } from "@/interfaces/compTypes";
+import { TitleLinksProp } from "@/interfaces/compInterfaces";
 
 function TitleLinks({ component }: any) {
   const [colorMode] = useColorMode();

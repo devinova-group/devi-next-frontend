@@ -8,6 +8,7 @@ import NavLink from "../NavLink";
 import ArrowUP from "..//../assets/arrow.svg";
 import ArrowDown from "..//../assets/arrowDown.svg";
 import Flex from "../Flex";
+
 export interface NavDropDownProps {
   children?: React.ReactNode;
   title?: string;
@@ -17,7 +18,7 @@ export interface ItemProps {
   href?: string;
 }
 
-const NavDropDown = ({ children, title }: any) => {
+const NavDropDown = ({ children, title }: NavDropDownProps) => {
   const fadeIn = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } });
   const [open, setOpen] = useState(false);
   const [dropDown, setDropDown] = useState(false);

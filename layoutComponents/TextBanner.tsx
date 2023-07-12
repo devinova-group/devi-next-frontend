@@ -3,7 +3,7 @@ import Flex from "@/library/Flex";
 import Image from "@/library/Image";
 import Text from "@/library/Text";
 import Box from "@/library/Box";
-import { TextBannerProps } from "@/interfaces/compTypes";
+import { TextBannerProps } from "@/interfaces/compInterfaces";
 
 function TextBanner({ component }: TextBannerProps) {
   const title = component?.titleTextBanner;

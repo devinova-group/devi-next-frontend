@@ -1,34 +1,6 @@
 import { gql } from "@apollo/client";
 const getPages = gql`
   query GetAllData {
-    notfound {
-      data {
-        attributes {
-          warningHeader
-          warningInfo
-          image {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          imageLight {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          button {
-            text
-            color
-            size
-            variant
-          }
-        }
-      }
-    }
     footer {
       data {
         attributes {

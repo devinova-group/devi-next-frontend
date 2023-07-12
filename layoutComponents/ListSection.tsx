@@ -3,7 +3,7 @@ import Text from "@/library/Text";
 import React from "react";
 import ListItem from "./ListItem";
 import Flex from "@/library/Flex";
-import { ListSectionProp } from "@/interfaces/compTypes";
+import { ListSectionProp } from "@/interfaces/compInterfaces";
 
 function ListSection({ component }: ListSectionProp) {
   const title = component?.listTitle;

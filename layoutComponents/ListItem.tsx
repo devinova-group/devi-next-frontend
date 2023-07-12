@@ -1,4 +1,4 @@
-import { ListSectionProp } from "@/interfaces/compTypes";
+import { ListSectionProp } from "@/interfaces/compInterfaces";
 import Flex from "@/library/Flex";
 import Image from "@/library/Image";
 import Text from "@/library/Text";
