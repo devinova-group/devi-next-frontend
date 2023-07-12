@@ -1,14 +1,15 @@
-import { gql, useQuery } from "@apollo/client";
-import { Flex, useColorMode } from "theme-ui";
-import Designator from "@/layoutComponents/Designator";
+import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import NotFound from "../404";
 import { getPages } from "@/interfaces/graphql/Query";
+import Flex from "@/library/Flex";
+import Designator from "@/layoutComponents/Designator";
+import NotFound from "../404";
 import Loading from "@/library/Loading";
 
 export default function Home() {
   const { data, loading, error } = useQuery(getPages);
   const router = useRouter();
+
   if (loading) {
     return <Loading />;
   }
